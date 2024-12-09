@@ -1,0 +1,266 @@
+* {
+  font-size: 16px;
+  /* jsdom issues - defaults to empty string instead of default element values */
+  background-image: none;
+  letter-spacing: normal;
+  color: black;
+  cursor: auto;
+}
+
+/*
+ * Default styles for commonly used HTML elements based on modern browsers
+ */
+
+/* Body */
+body {
+  display: block;
+  margin: 8px;
+}
+
+/* Headings */
+h1 {
+  display: block;
+  font-size: 28px;
+}
+
+h2 {
+  display: block;
+  font-size: 22px;
+}
+
+h3 {
+  display: block;
+  font-size: 18px;
+}
+
+h4 {
+  display: block;
+  font-size: 16px;
+}
+
+h5 {
+  display: block;
+  font-size: 16px;
+}
+
+h6 {
+  display: block;
+  font-size: 16px;
+}
+
+/* Links */
+a {
+  background-color: transparent;
+  color: rgb(0, 0, 238);
+  text-decoration: none;
+}
+
+a:active,
+a:hover {
+  outline-width: 0px;
+  text-decoration: underline;
+}
+
+/* Lists */
+ul,
+ol {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+}
+
+li {
+  display: list-item;
+}
+
+/* Images */
+img {
+  border-style: none;
+  vertical-align: middle;
+}
+
+/* Containers */
+div {
+  display: block;
+}
+
+/* Buttons */
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  align-items: flex-start;
+  text-align: center;
+  cursor: default;
+  color: black;
+  background-color: rgb(234, 234, 234);
+  box-sizing: border-box;
+  padding: 1px 6px;
+  border-width: 2px;
+  border-style: outset;
+  border-color: black;
+  border-image: initial;
+}
+
+/* Forms */
+input,
+textarea,
+select,
+button {
+  text-rendering: auto;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: start;
+  margin: 0em;
+}
+
+/* Tables */
+table {
+  display: table;
+  border-collapse: separate;
+  border-spacing: 2px;
+  border-color: rgb(125, 125, 125);
+}
+
+span,
+map {
+  display: inline;
+}
+
+label {
+  display: inline;
+  cursor: default;
+}
+
+html,
+form,
+article,
+footer,
+header,
+p,
+nav,
+section,
+aside,
+menu,
+pre {
+  display: block;
+}
+
+s,
+del {
+  text-decoration: line-through;
+}
+
+b {
+  font-weight: bold;
+}
+
+small {
+  display: inline;
+  font-size: smaller;
+}
+
+head,
+title,
+style,
+script {
+  display: none;
+}
+
+th,
+td {
+  display: table-cell;
+  vertical-align: inherit;
+}
+
+tr {
+  display: table-row;
+}
+
+button,
+a,
+.cursor-pointer {
+  cursor: pointer;
+}
+
+svg {
+  display: inline;
+  width: 300px;
+  height: 150px;
+}
+
+.hide {
+  display: none !important;
+}
+
+.not-visible {
+  visibility: hidden !important;
+}
+
+.fixed {
+  position: fixed !important;
+}
+
+.transparent {
+  opacity: 0;
+}
+
+.line-through {
+  text-decoration: line-through;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.background-image {
+  background-image: url("http://www.example.com/img.png");
+  width: 400px;
+  height: 400px;
+}
+
+.modal {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.modal-visible {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: rgb(255, 255, 255);
+  height: 70%;
+  width: 70%;
+  padding: 2rem;
+  position: relative;
+}
+
+.modal-close {
+  background-color: #000000;
+  position: absolute;
+  right: -1rem;
+  top: -1rem;
+  color: #ffffff;
+}
