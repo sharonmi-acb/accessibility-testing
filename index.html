@@ -2,21 +2,59 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1.5"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accessibility Test: Long Headings with ARIA</title>
   </head>
   <body>
-    <a href="#body" class="fixed">Skip content</a>
-    <h1>Document</h1>
-    <main id="body"></main>
-    <footer>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua
-    </footer>
+    <h1>Welcome to the Accessibility Testing Page</h1>
+    <!-- Short heading -->
+
+    <h2>Short Heading Example</h2>
+    <!-- Short heading -->
+
+    <h3>
+      This is a long heading that contains more than 150 characters to test how
+      the rule evaluates overly verbose headings and their impact on
+      accessibility tools like screen readers and navigation.
+    </h3>
+    <!-- Long heading -->
+
+    <h4>
+      Another Example of a Long Heading: This heading is specifically designed
+      to go beyond the character limit for testing purposes and to ensure
+      accurate results for accessibility evaluations.
+    </h4>
+    <!-- Long heading -->
+
+    <div role="heading" aria-level="3">
+      This is a short heading defined with a div using ARIA attributes.
+    </div>
+    <!-- Short heading with ARIA -->
+
+    <span role="heading" aria-level="4"
+      >This is another ARIA heading example, but it is long and goes beyond the
+      150-character threshold, designed to test ARIA-based headings with
+      excessive length.</span
+    >
+    <!-- Long heading with ARIA -->
+
+    <h5>Brief Heading</h5>
+    <!-- Short heading -->
+
+    <h6>
+      A medium-length heading that is just under the 150-character limit for
+      balance and testing purposes
+    </h6>
+    <!-- Medium heading -->
+
+    <div role="heading" aria-level="2">
+      Another ARIA heading defined using a div with appropriate heading level.
+    </div>
+    <!-- ARIA heading -->
+
+    <p>
+      Use the above examples to evaluate how long and short headings affect
+      screen readers and whether long headings are flagged appropriately.
+    </p>
   </body>
 </html>
