@@ -3,127 +3,106 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Navigation Accessibility Test</title>
+    <title>Table Accessibility Test</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 20px;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+      th {
+        background-color: #f4f4f4;
+      }
+    </style>
   </head>
   <body>
-    <h1>Navigation Accessibility Test</h1>
+    <h1>Table Accessibility Testing</h1>
+    <p>
+      Below are examples of tables that follow or violate the accessibility rule
+      for row headers.
+    </p>
 
-    <!-- PASS CASES -->
-    <section>
-      <h2>Pass Cases</h2>
+    <!-- Pass Case: Proper use of role="rowheader" -->
+    <h2>Pass Case 1: Proper Row Headers</h2>
+    <table id="pass-case-1">
+      <thead>
+        <tr>
+          <th>Column Header</th>
+          <th>Another Column</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td role="rowheader">Row Header 1</td>
+          <td>Data 1</td>
+        </tr>
+        <tr>
+          <td role="rowheader">Row Header 2</td>
+          <td>Data 2</td>
+        </tr>
+      </tbody>
+    </table>
 
-      <!-- Case 1: Correct use of role="presentation" for nested navigation -->
-      <nav id="main-nav-1">
-        <ul>
-          <li>
-            <a href="#" aria-expanded="false" aria-haspopup="true"
-              >Menu Item 1</a
-            >
-            <nav id="nested-nav-1" role="presentation">
-              <ul>
-                <li><a href="#">Sub-menu Item 1</a></li>
-                <li><a href="#">Sub-menu Item 2</a></li>
-              </ul>
-            </nav>
-          </li>
-          <li><a href="#">Menu Item 2</a></li>
-        </ul>
-      </nav>
+    <!-- Pass Case: Row header without a header row -->
+    <h2>Pass Case 2: Table Without a Header Row</h2>
+    <table id="pass-case-2">
+      <tbody>
+        <tr>
+          <td role="rowheader">Row Header 1</td>
+          <td>Data 1</td>
+        </tr>
+        <tr>
+          <td role="rowheader">Row Header 2</td>
+          <td>Data 2</td>
+        </tr>
+      </tbody>
+    </table>
 
-      <!-- Case 2: Correct use of role="region" and aria-label -->
-      <nav id="main-nav-2">
-        <ul>
-          <li>
-            <a href="#" aria-expanded="false" aria-haspopup="true"
-              >Menu Item 3</a
-            >
-            <nav id="nested-nav-2" role="region" aria-label="Submenu">
-              <ul>
-                <li><a href="#">Sub-menu Item 3</a></li>
-                <li><a href="#">Sub-menu Item 4</a></li>
-              </ul>
-            </nav>
-          </li>
-          <li><a href="#">Menu Item 4</a></li>
-        </ul>
-      </nav>
+    <!-- Fail Case: Missing role="rowheader" -->
+    <h2>Fail Case 1: Missing Row Header Role</h2>
+    <table id="fail-case-1">
+      <thead>
+        <tr>
+          <th>Column Header</th>
+          <th>Another Column</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Row Header 1</td>
+          <td>Data 1</td>
+        </tr>
+        <tr>
+          <td>Row Header 2</td>
+          <td>Data 2</td>
+        </tr>
+      </tbody>
+    </table>
 
-      <!-- Case 3: Using DIV instead of nested NAV -->
-      <nav id="main-nav-3">
-        <ul>
-          <li>
-            <a href="#" aria-expanded="false" aria-haspopup="true"
-              >Menu Item 5</a
-            >
-            <div id="nested-div-1" role="region" aria-label="Submenu">
-              <ul>
-                <li><a href="#">Sub-menu Item 5</a></li>
-                <li><a href="#">Sub-menu Item 6</a></li>
-              </ul>
-            </div>
-          </li>
-          <li><a href="#">Menu Item 6</a></li>
-        </ul>
-      </nav>
-    </section>
-
-    <!-- FAIL CASES -->
-    <section>
-      <h2>Fail Cases</h2>
-
-      <!-- Case 1: Nested NAV without role="presentation" -->
-      <nav id="main-nav-4">
-        <ul>
-          <li>
-            <a href="#" aria-expanded="false" aria-haspopup="true"
-              >Menu Item 7</a
-            >
-            <nav id="nested-nav-3">
-              <ul>
-                <li><a href="#">Sub-menu Item 7</a></li>
-                <li><a href="#">Sub-menu Item 8</a></li>
-              </ul>
-            </nav>
-          </li>
-          <li><a href="#">Menu Item 8</a></li>
-        </ul>
-      </nav>
-
-      <!-- Case 2: No role or aria-label on nested navigation -->
-      <nav id="main-nav-5">
-        <ul>
-          <li>
-            <a href="#" aria-expanded="false" aria-haspopup="true"
-              >Menu Item 9</a
-            >
-            <nav id="nested-nav-4">
-              <ul>
-                <li><a href="#">Sub-menu Item 9</a></li>
-                <li><a href="#">Sub-menu Item 10</a></li>
-              </ul>
-            </nav>
-          </li>
-          <li><a href="#">Menu Item 10</a></li>
-        </ul>
-      </nav>
-
-      <!-- Case 3: Misuse of role (not using role="region" or "presentation") -->
-      <nav id="main-nav-6">
-        <ul>
-          <li>
-            <a href="#" aria-expanded="false" aria-haspopup="true"
-              >Menu Item 11</a
-            >
-            <nav id="nested-nav-5" role="banner">
-              <ul>
-                <li><a href="#">Sub-menu Item 11</a></li>
-                <li><a href="#">Sub-menu Item 12</a></li>
-              </ul>
-            </nav>
-          </li>
-          <li><a href="#">Menu Item 12</a></li>
-        </ul>
-      </nav>
-    </section>
+    <!-- Fail Case: Incorrect usage of role -->
+    <h2>Fail Case 2: Incorrect Role Usage</h2>
+    <table id="fail-case-2">
+      <thead>
+        <tr>
+          <th>Column Header</th>
+          <th>Another Column</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td role="button">Row Header 1</td>
+          <td>Data 1</td>
+        </tr>
+        <tr>
+          <td role="button">Row Header 2</td>
+          <td>Data 2</td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>
