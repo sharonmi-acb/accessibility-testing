@@ -3,95 +3,127 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Random HTML Page with Application Role</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-      }
-      #app-container {
-        border: 2px solid #333;
-        padding: 20px;
-        margin: 20px auto;
-        max-width: 600px;
-        background-color: #f9f9f9;
-      }
-      .button {
-        padding: 10px 15px;
-        margin: 5px;
-        border: none;
-        background-color: #007bff;
-        color: white;
-        cursor: pointer;
-      }
-      .button:hover {
-        background-color: #0056b3;
-      }
-    </style>
+    <title>Navigation Accessibility Test</title>
   </head>
   <body>
-    <h1>Welcome to the Random HTML Page</h1>
-    <p>
-      This is a sample HTML page to demonstrate an element with the
-      <code>role="application"</code> attribute.
-    </p>
+    <h1>Navigation Accessibility Test</h1>
 
-    <div
-      id="app-container"
-      role="application"
-      tabindex="0"
-      aria-label="Interactive Calculator"
-    >
-      <h2>Simple Calculator</h2>
-      <p>Click the buttons to calculate a result:</p>
-      <div>
-        <button class="button" onclick="appendNumber(1)">1</button>
-        <button class="button" onclick="appendNumber(2)">2</button>
-        <button class="button" onclick="appendNumber(3)">3</button>
-      </div>
-      <div>
-        <button class="button" onclick="appendNumber(4)">4</button>
-        <button class="button" onclick="appendNumber(5)">5</button>
-        <button class="button" onclick="appendNumber(6)">6</button>
-      </div>
-      <div>
-        <button class="button" onclick="clearDisplay()">C</button>
-        <button class="button" onclick="calculate()">=</button>
-      </div>
-      <input
-        type="text"
-        id="calculator-display"
-        aria-label="Calculator Display"
-        readonly
-        style="width: 100%; padding: 10px; margin-top: 10px"
-      />
-    </div>
+    <!-- PASS CASES -->
+    <section>
+      <h2>Pass Cases</h2>
 
-    <script>
-      let currentInput = "";
+      <!-- Case 1: Correct use of role="presentation" for nested navigation -->
+      <nav>
+        <ul>
+          <li>
+            <a href="#" aria-expanded="false" aria-haspopup="true"
+              >Menu Item 1</a
+            >
+            <nav role="presentation">
+              <ul>
+                <li><a href="#">Sub-menu Item 1</a></li>
+                <li><a href="#">Sub-menu Item 2</a></li>
+              </ul>
+            </nav>
+          </li>
+          <li><a href="#">Menu Item 2</a></li>
+        </ul>
+      </nav>
 
-      function appendNumber(num) {
-        currentInput += num;
-        updateDisplay();
-      }
+      <!-- Case 2: Correct use of role="region" and aria-label -->
+      <nav>
+        <ul>
+          <li>
+            <a href="#" aria-expanded="false" aria-haspopup="true"
+              >Menu Item 3</a
+            >
+            <nav role="region" aria-label="Submenu">
+              <ul>
+                <li><a href="#">Sub-menu Item 3</a></li>
+                <li><a href="#">Sub-menu Item 4</a></li>
+              </ul>
+            </nav>
+          </li>
+          <li><a href="#">Menu Item 4</a></li>
+        </ul>
+      </nav>
 
-      function clearDisplay() {
-        currentInput = "";
-        updateDisplay();
-      }
+      <!-- Case 3: Using DIV instead of nested NAV -->
+      <nav>
+        <ul>
+          <li>
+            <a href="#" aria-expanded="false" aria-haspopup="true"
+              >Menu Item 5</a
+            >
+            <div role="region" aria-label="Submenu">
+              <ul>
+                <li><a href="#">Sub-menu Item 5</a></li>
+                <li><a href="#">Sub-menu Item 6</a></li>
+              </ul>
+            </div>
+          </li>
+          <li><a href="#">Menu Item 6</a></li>
+        </ul>
+      </nav>
+    </section>
 
-      function calculate() {
-        try {
-          currentInput = eval(currentInput).toString(); // Evaluate the input string
-          updateDisplay();
-        } catch (e) {
-          alert("Invalid input");
-          clearDisplay();
-        }
-      }
+    <!-- FAIL CASES -->
+    <section>
+      <h2>Fail Cases</h2>
 
-      function updateDisplay() {
-        document.getElementById("calculator-display").value = currentInput;
-      }
-    </script>
+      <!-- Case 1: Nested NAV without role="presentation" -->
+      <nav>
+        <ul>
+          <li>
+            <a href="#" aria-expanded="false" aria-haspopup="true"
+              >Menu Item 7</a
+            >
+            <nav>
+              <ul>
+                <li><a href="#">Sub-menu Item 7</a></li>
+                <li><a href="#">Sub-menu Item 8</a></li>
+              </ul>
+            </nav>
+          </li>
+          <li><a href="#">Menu Item 8</a></li>
+        </ul>
+      </nav>
+
+      <!-- Case 2: No role or aria-label on nested navigation -->
+      <nav>
+        <ul>
+          <li>
+            <a href="#" aria-expanded="false" aria-haspopup="true"
+              >Menu Item 9</a
+            >
+            <nav>
+              <ul>
+                <li><a href="#">Sub-menu Item 9</a></li>
+                <li><a href="#">Sub-menu Item 10</a></li>
+              </ul>
+            </nav>
+          </li>
+          <li><a href="#">Menu Item 10</a></li>
+        </ul>
+      </nav>
+
+      <!-- Case 3: Misuse of role (not using role="region" or "presentation") -->
+      <nav>
+        <ul>
+          <li>
+            <a href="#" aria-expanded="false" aria-haspopup="true"
+              >Menu Item 11</a
+            >
+            <nav role="banner">
+              <ul>
+                <li><a href="#">Sub-menu Item 11</a></li>
+                <li><a href="#">Sub-menu Item 12</a></li>
+              </ul>
+            </nav>
+          </li>
+          <li><a href="#">Menu Item 12</a></li>
+        </ul>
+      </nav>
+    </section>
   </body>
 </html>
