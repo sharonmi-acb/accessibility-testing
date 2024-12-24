@@ -3,133 +3,46 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Table Accessibility Test</title>
+    <title>Visual Rating Accessibility Examples</title>
     <style>
-      table {
-        border-collapse: collapse;
-        width: 100%;
-        margin-bottom: 20px;
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
       }
-      th,
-      td {
-        border: 1px solid #ddd;
-        padding: 8px;
-      }
-      th {
-        background-color: #f4f4f4;
+      .rating {
+        font-size: 20px;
+        color: gold;
       }
     </style>
   </head>
   <body>
-    <h1>Table Accessibility Testing</h1>
-    <p>
-      Below are examples of tables that follow or violate the accessibility rule
-      for row headers.
-    </p>
+    <h1>Visual Rating Accessibility Examples</h1>
 
-    <!-- Pass Case: Proper use of role="rowheader" -->
-    <h2>Pass Case 1: Proper Row Headers</h2>
-    <table id="pass-case-1">
-      <thead>
-        <tr>
-          <th>Column Header</th>
-          <th>Another Column</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td role="rowheader">Row Header 1</td>
-          <td>Data 1</td>
-        </tr>
-        <tr>
-          <td role="rowheader">Row Header 2</td>
-          <td>Data 2</td>
-        </tr>
-      </tbody>
-    </table>
+    <!-- Passing Case 1: Properly accessible rating with sr-only -->
+    <h2>Passing Example 1: Accessible Rating</h2>
+    <div id="rating-passing-1" class="rating">
+      ★★★★☆ <span class="sr-only">4/5 rating</span>
+    </div>
 
-    <!-- Pass Case: Row header without a header row -->
-    <h2>Pass Case 2: Table Without a Header Row</h2>
-    <table id="pass-case-2">
-      <tbody>
-        <tr>
-          <td role="rowheader">Row Header 1</td>
-          <td>Data 1</td>
-        </tr>
-        <tr>
-          <td role="rowheader">Row Header 2</td>
-          <td>Data 2</td>
-        </tr>
-      </tbody>
-    </table>
+    <!-- Passing Case 2: Another accessible rating -->
+    <h2>Passing Example 2: Accessible Rating</h2>
+    <div id="rating-passing-2" class="rating">
+      ★★★★★ <span class="sr-only">5/5 rating</span>
+    </div>
 
-    <!-- Fail Case: Missing role="rowheader" -->
-    <h2>Fail Case 1: Missing Row Header Role</h2>
-    <table id="fail-case-1">
-      <thead>
-        <tr>
-          <th>Column Header</th>
-          <th>Another Column</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Row Header 1</td>
-          <td>Data 1</td>
-        </tr>
-        <tr>
-          <td>Row Header 2</td>
-          <td>Data 2</td>
-        </tr>
-      </tbody>
-    </table>
+    <!-- Failing Case 1: Rating with no text description -->
+    <h2>Failing Example 1: Visual Rating Only</h2>
+    <div id="rating-failing-1" class="rating">★★★★☆</div>
 
-    <!-- Fail Case: Incorrect usage of role -->
-    <h2>Fail Case 2: Incorrect Role Usage</h2>
-    <table id="fail-case-2">
-      <thead>
-        <tr>
-          <th>Column Header</th>
-          <th>Another Column</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td role="button">Row Header 1</td>
-          <td>Data 1</td>
-        </tr>
-        <tr>
-          <td role="button">Row Header 2</td>
-          <td>Data 2</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <table>
-      <thead>
-        <tr>
-          <th>I'm a column header</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td role="rowheader">I'm a row header</td>
-          <td>I'm a regular cell</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <table>
-      <tr>
-        <td style="font-weight: 600;">Jill</td>
-        <td><span><span>Smith</td>
-        <td>50</td>
-      </tr>
-      <tr>
-        <td style="font-weight: 600;">Eve</td>
-        <td>Jackson</td>
-        <td>94</td>
-      </tr>
-    </table>
+    <!-- Failing Case 2: Rating with visible text, but no sr-only for screen readers -->
+    <h2>Failing Example 2: Visible Rating Description</h2>
+    <div id="rating-failing-2" class="rating">★★★☆☆ 3/5 rating</div>
   </body>
 </html>
