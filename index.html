@@ -3,133 +3,105 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Table Accessibility Test</title>
+    <title>Table Accessibility Examples</title>
     <style>
       table {
         border-collapse: collapse;
-        width: 100%;
-        margin-bottom: 20px;
+        margin: 20px 0;
       }
+
       th,
       td {
-        border: 1px solid #ddd;
-        padding: 8px;
+        border: 1px solid #333;
+        padding: 10px;
+        text-align: left;
       }
+
       th {
-        background-color: #f4f4f4;
+        font-weight: bold;
+      }
+
+      td[role="columnheader"] {
+        font-weight: bold;
       }
     </style>
   </head>
   <body>
-    <h1>Table Accessibility Testing</h1>
-    <p>
-      Below are examples of tables that follow or violate the accessibility rule
-      for row headers.
-    </p>
+    <h1>Table Accessibility Examples</h1>
 
-    <!-- Pass Case: Proper use of role="rowheader" -->
-    <h2>Pass Case 1: Proper Row Headers</h2>
-    <table id="pass-case-1">
+    <!-- Passing Case 1: Properly coded table with TH elements -->
+    <h2>Passing Example 1: Table with <code>TH</code> elements</h2>
+    <table id="table-passing-1">
       <thead>
         <tr>
-          <th>Column Header</th>
-          <th>Another Column</th>
+          <th>Header 1</th>
+          <th>Header 2</th>
+          <th>Header 3</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td role="rowheader">Row Header 1</td>
-          <td>Data 1</td>
-        </tr>
-        <tr>
-          <td role="rowheader">Row Header 2</td>
-          <td>Data 2</td>
+          <td>Row 1, Cell 1</td>
+          <td>Row 1, Cell 2</td>
+          <td>Row 1, Cell 3</td>
         </tr>
       </tbody>
     </table>
 
-    <!-- Pass Case: Row header without a header row -->
-    <h2>Pass Case 2: Table Without a Header Row</h2>
-    <table id="pass-case-2">
+    <!-- Passing Case 2: TD elements with role="columnheader" -->
+    <h2>
+      Passing Example 2: Table with <code>TD</code> elements and
+      <code>role="columnheader"</code>
+    </h2>
+    <table id="table-passing-2">
       <tbody>
         <tr>
-          <td role="rowheader">Row Header 1</td>
-          <td>Data 1</td>
+          <td role="columnheader">Header 1</td>
+          <td role="columnheader">Header 2</td>
+          <td role="columnheader">Header 3</td>
         </tr>
         <tr>
-          <td role="rowheader">Row Header 2</td>
-          <td>Data 2</td>
+          <td>Row 1, Cell 1</td>
+          <td>Row 1, Cell 2</td>
+          <td>Row 1, Cell 3</td>
         </tr>
       </tbody>
     </table>
 
-    <!-- Fail Case: Missing role="rowheader" -->
-    <h2>Fail Case 1: Missing Row Header Role</h2>
-    <table id="fail-case-1">
-      <thead>
-        <tr>
-          <th>Column Header</th>
-          <th>Another Column</th>
-        </tr>
-      </thead>
+    <!-- Failing Case 1: Table with visually styled TD elements -->
+    <h2>
+      Failing Example 1: Table with visually styled <code>TD</code> elements
+    </h2>
+    <table id="table-failing-1">
       <tbody>
         <tr>
-          <td>Row Header 1</td>
-          <td>Data 1</td>
+          <td><strong>Header 1</strong></td>
+          <td><strong>Header 2</strong></td>
+          <td><strong>Header 3</strong></td>
         </tr>
         <tr>
-          <td>Row Header 2</td>
-          <td>Data 2</td>
+          <td>Row 1, Cell 1</td>
+          <td>Row 1, Cell 2</td>
+          <td>Row 1, Cell 3</td>
         </tr>
       </tbody>
     </table>
 
-    <!-- Fail Case: Incorrect usage of role -->
-    <h2>Fail Case 2: Incorrect Role Usage</h2>
-    <table id="fail-case-2">
-      <thead>
-        <tr>
-          <th>Column Header</th>
-          <th>Another Column</th>
-        </tr>
-      </thead>
+    <!-- Failing Case 2: Missing any header semantics -->
+    <h2>Failing Example 2: Table with no header semantics</h2>
+    <table id="table-failing-2">
       <tbody>
         <tr>
-          <td role="button">Row Header 1</td>
-          <td>Data 1</td>
+          <td>Header 1</td>
+          <td>Header 2</td>
+          <td>Header 3</td>
         </tr>
         <tr>
-          <td role="button">Row Header 2</td>
-          <td>Data 2</td>
+          <td>Row 1, Cell 1</td>
+          <td>Row 1, Cell 2</td>
+          <td>Row 1, Cell 3</td>
         </tr>
       </tbody>
-    </table>
-
-    <table>
-      <thead>
-        <tr>
-          <th>I'm a column header</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td role="rowheader">I'm a row header</td>
-          <td>I'm a regular cell</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <table>
-      <tr>
-        <td style="font-weight: 600;">Jill</td>
-        <td><span><span>Smith</td>
-        <td>50</td>
-      </tr>
-      <tr>
-        <td style="font-weight: 600;">Eve</td>
-        <td>Jackson</td>
-        <td>94</td>
-      </tr>
     </table>
   </body>
 </html>
