@@ -21,13 +21,17 @@
     </style>
   </head>
   <body>
-    <h1>Table Accessibility Testing</h1>
-    <p>
-      Below are examples of tables that follow or violate the accessibility rule
-      for row headers.
-    </p>
-
     <!-- Pass Case: Proper use of role="rowheader" -->
+    <div role="table">
+      <div role="row">
+        <div style="font-weight: 600" role="cell">header</div>
+      </div>
+      <tbody>
+        <tr>
+          <td>cell</td>
+        </tr>
+      </tbody>
+    </div>
     <h2>Pass Case 1: Proper Row Headers</h2>
     <table id="pass-case-1">
       <thead>
