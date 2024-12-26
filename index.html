@@ -1,37 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-  .test-subject {
-    font-weight: bold;
-  }
-  [role=table] {
-    display: table;
-  }
-
-  [role=row] {
-    display: table-row;
-  }
-
-  [role=row] > * {
-    display: table-cell;
-    border: 1px solid black;
-    width: 100px;
-  }
-</style>
-</style>
-<div role="table">
-  <div role="row">
-    <div role="columnheader" class="test-subject">Header 1</div>
-    <div role="columnheader" class="test-subject">Header 2</div>
-  </div>
-  <div role="row">
-    <div role="cell">Row 1, Cell 1</div>
-    <div role="cell">Row 1, Cell 2</div>
-  </div>
-  <div role="row">
-    <div role="cell">Row 2, Cell 1</div>
-    <div role="cell">Row 2, Cell 2</div>
-  </div>
-</div>
+  <style>
+    .test-subject {
+      font-weight: bold;
+    }
+  
+     td, th {
+       border: 1px solid black;
+       width: 100px;
+     }
+  </style>
+  <table>
+    <tbody>
+      <tr>
+        <td class="test-subject">Row 1</td>
+        <td>Row 1, Cell 1</td>
+      </tr>
+      <tr>
+        <td class="test-subject">Row 2</td>
+        <td>Row 2, Cell 1</td>
+      </tr>
+      <tr>
+        <td class="test-subject">Row 3</td>
+        <td>Row 3, Cell 1</td>
+      </tr>
+    </tbody>
+  </table>
 </html>
