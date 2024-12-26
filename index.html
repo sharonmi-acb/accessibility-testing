@@ -2,37 +2,25 @@
 <html>
 <head>
 <style>
-table, th, td {
-  border: 1px solid black;
-}
   .test-subject {
     font-weight: bold;
   }
-</style>
-<table>
-  <tr>
-    <td class="test-subject">
-      <span>First Name</span>
-    </td>
-    <td class="test-subject">
-      <span>Last Name</span>
-    </td>
-    <td class="test-subject">
-      <span>Company Name</span>
-    </td>
-    <td class="test-subject">
-      <span>Job Title</span>
-    </td>
-  </tr>
-  <tr>
-    <td>John</td>
-    <td>Doe</td>
-    <td>Google</td>
-    <td>Sales</td>
-  </tr>
-</table>
+  [role=table] {
+    display: table;
+  }
 
-<!-- <div role="table">
+  [role=row] {
+    display: table-row;
+  }
+
+  [role=row] > * {
+    display: table-cell;
+    border: 1px solid black;
+    width: 100px;
+  }
+</style>
+</style>
+<div role="table">
   <div role="row">
     <div role="columnheader" class="test-subject">Header 1</div>
     <div role="columnheader" class="test-subject">Header 2</div>
@@ -45,7 +33,5 @@ table, th, td {
     <div role="cell">Row 2, Cell 1</div>
     <div role="cell">Row 2, Cell 2</div>
   </div>
-</div> -->
-
-</body>
+</div>
 </html>
