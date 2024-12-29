@@ -1,21 +1,50 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <style>
-    td, th {
-      border: 1px solid black;
-      width: 100px;
-    }
-  </style>
-  
-  <table>
-    <tr>
-      <th class="test-subject">Row 1</th>
-      <td>Row 1, Cell 1</td>
-    </tr>
-    <tr>
-      <th class="test-subject">Row 2</th>
-      <td>Row 2, Cell 1</td>
-    </tr>
-  </table>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Success and Failure Cases</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      .success {
+        color: green;
+      }
+      .failure {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Accessibility Testing Cases</h1>
+
+    <h2 class="success">Success Cases</h2>
+    <div id="success-container"></div>
+
+    <h2 class="failure">Failure Cases</h2>
+    <div id="failure-container"></div>
+
+    <script type="module">
+      import { html, render } from "https://unpkg.com/lit-html?module";
+
+      const successCases = [
+        html`<div role="button" aria-label="button">Click</div>`,
+        html`<a href="#" role="button" aria-label="button">Click</a>`,
+        html`<li role="listitem" aria-level="3">Lettuce</li>`,
+      ];
+
+      const failureCases = [
+        html`<div class="test" aria-label="button">Click</div>`,
+        html`<span class="test" aria-label="info">Info</span>`,
+      ];
+
+      const successContainer = document.getElementById("success-container");
+      const failureContainer = document.getElementById("failure-container");
+
+      successCases.forEach((caseItem) => render(caseItem, successContainer));
+      failureCases.forEach((caseItem) => render(caseItem, failureContainer));
+    </script>
+  </body>
 </html>
