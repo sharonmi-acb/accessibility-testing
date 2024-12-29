@@ -21,30 +21,16 @@
     <h1>Accessibility Testing Cases</h1>
 
     <h2 class="success">Success Cases</h2>
-    <div id="success-container"></div>
+    <div class="success">
+      <div role="button" aria-label="button">Click</div>
+      <a href="#" role="button" aria-label="button">Click</a>
+      <li role="listitem" aria-level="3">Lettuce</li>
+    </div>
 
     <h2 class="failure">Failure Cases</h2>
-    <div id="failure-container"></div>
-
-    <script type="module">
-      import { html, render } from "https://unpkg.com/lit-html?module";
-
-      const successCases = [
-        html`<div role="button" aria-label="button">Click</div>`,
-        html`<a href="#" role="button" aria-label="button">Click</a>`,
-        html`<li role="listitem" aria-level="3">Lettuce</li>`,
-      ];
-
-      const failureCases = [
-        html`<div class="test" aria-label="button">Click</div>`,
-        html`<span class="test" aria-label="info">Info</span>`,
-      ];
-
-      const successContainer = document.getElementById("success-container");
-      const failureContainer = document.getElementById("failure-container");
-
-      successCases.forEach((caseItem) => render(caseItem, successContainer));
-      failureCases.forEach((caseItem) => render(caseItem, failureContainer));
-    </script>
+    <div class="failure">
+      <div class="test" aria-label="button">Click</div>
+      <span class="test" aria-label="info">Info</span>
+    </div>
   </body>
 </html>
