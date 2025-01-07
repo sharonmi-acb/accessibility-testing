@@ -3,24 +3,53 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <title>Role Application Violation</title> -->
+    <title>Table with Improper Headers</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+      }
+      tr:first-child td {
+        font-weight: bold; /* Make the first row visually look like headers */
+        background-color: #f2f2f2; /* Highlight header row */
+      }
+    </style>
   </head>
-  <body role="application">
-    <h1>Welcome to Our Website</h1>
-    <p>This page uses <code>role="application"</code> improperly.</p>
+  <body>
+    <h1>Improperly Tagged Table Headers</h1>
+    <p>
+      This table visually appears to have headers, but they are not coded
+      properly for accessibility.
+    </p>
 
-    <div tabindex="0">
-      <p>Content section 1</p>
-      <button>Click Me</button>
-    </div>
-
-    <div tabindex="0">
-      <p>Content section 2</p>
-      <input type="text" placeholder="Type something here" />
-    </div>
-
-    <footer>
-      <p>&copy; 2025 Your Company</p>
-    </footer>
+    <table>
+      <tbody>
+        <tr>
+          <td>Name</td>
+          <td>Age</td>
+          <td>City</td>
+        </tr>
+        <tr>
+          <td>John Doe</td>
+          <td>30</td>
+          <td>New York</td>
+        </tr>
+        <tr>
+          <td>Jane Smith</td>
+          <td>25</td>
+          <td>Los Angeles</td>
+        </tr>
+        <tr>
+          <td>Emily Johnson</td>
+          <td>35</td>
+          <td>Chicago</td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>
