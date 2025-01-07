@@ -3,45 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HTML Success and Failure Cases</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 20px;
-      }
-      .success {
-        color: green;
-      }
-      .failure {
-        color: red;
-      }
-      .test-subject
-        .test-subject1
-        .test-subject2
-        .test-subject3
-        .test-subject4 {
-        font-weight: bold;
-      }
-    </style>
+    <title>Role Application Violation</title>
   </head>
-  <body>
-    <nav id="not-nested-nav">
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li>
-          <a href="/about/">About Us</a>
-          <!-- Submenu for "About Us" -->
-          <nav id="nested-nav">
-            <ul>
-              <li><a href="/about/history">Our History</a></li>
-              <li><a href="/about/team">Our Team</a></li>
-              <li><a href="/about/mission">Our Mission</a></li>
-            </ul>
-          </nav>
-        </li>
-        <li><a href="/services/">Services</a></li>
-        <li><a href="/contact/">Contact</a></li>
-      </ul>
-    </nav>
+  <body role="application">
+    <h1>Welcome to Our Website</h1>
+    <p>This page uses <code>role="application"</code> improperly.</p>
+
+    <div tabindex="0">
+      <p>Content section 1</p>
+      <button>Click Me</button>
+    </div>
+
+    <div tabindex="0">
+      <p>Content section 2</p>
+      <input type="text" placeholder="Type something here" />
+    </div>
+
+    <footer>
+      <p>&copy; 2025 Your Company</p>
+    </footer>
   </body>
 </html>
