@@ -21,35 +21,40 @@
     </style>
   </head>
   <body>
-    <h1>Improperly Tagged Table Headers</h1>
-    <p>
-      This table visually appears to have headers, but they are not coded
-      properly for accessibility.
-    </p>
-
+    <style>
+      /* Add table borders */
+      table {
+        border-collapse: collapse; /* Ensures borders do not double */
+        width: 100%; /* Optional: Makes the table span the container width */
+      }
+      th,
+      td {
+        border: 1px solid black; /* Adds borders to table cells */
+        padding: 8px; /* Adds spacing inside the cells */
+        text-align: left; /* Aligns text to the left */
+      }
+      th {
+        background-color: #f2f2f2; /* Optional: Highlights the headers */
+      }
+    </style>
     <table>
       <tbody>
         <tr>
-          <td>Name</td>
-          <td>Age</td>
-          <td>City</td>
+          <th id="headerOfColumn1">Projects</th>
+          <th id="headerOfColumn2">Objective</th>
         </tr>
         <tr>
-          <td>John Doe</td>
-          <td>30</td>
-          <td>New York</td>
-        </tr>
-        <tr>
-          <td>Jane Smith</td>
-          <td>25</td>
-          <td>Los Angeles</td>
-        </tr>
-        <tr>
-          <td>Emily Johnson</td>
-          <td>35</td>
-          <td>Chicago</td>
+          <td headers="headerOfColumn1">15%</td>
+          <td headers="headerOfColumn2">10%</td>
         </tr>
       </tbody>
     </table>
+
+    <script src="http://localhost:9000/index.umd.js"></script>
+    <iframe
+      role="presentation"
+      srcdoc='<html lang="en"></html>'
+      style="visibility: hidden; pointer-events: none; position: fixed"
+    ></iframe>
   </body>
 </html>
