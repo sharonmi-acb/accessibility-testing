@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Carousel Accessibility Examples</title>
     <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
       .carousel {
         display: flex;
         overflow: hidden;
@@ -12,6 +16,7 @@
         height: 200px;
         border: 1px solid #ccc;
         position: relative;
+        background-color: #f0f0f0;
       }
       .carousel-slide {
         min-width: 100%;
@@ -19,7 +24,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: #f0f0f0;
+        font-size: 18px;
         transition: transform 0.5s ease-in-out;
       }
       .carousel-controls {
@@ -29,13 +34,18 @@
         display: flex;
         justify-content: space-between;
         transform: translateY(-50%);
+        z-index: 1;
       }
       .carousel-controls button {
         background: rgba(0, 0, 0, 0.5);
         color: white;
         border: none;
-        padding: 10px;
+        padding: 10px 15px;
         cursor: pointer;
+        font-size: 14px;
+      }
+      .carousel-controls button:hover {
+        background: rgba(0, 0, 0, 0.7);
       }
     </style>
   </head>
