@@ -3,11 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Accessible Carousel Example</title>
+    <title>Accessible Carousel Examples</title>
     <style>
       body {
         font-family: Arial, sans-serif;
         margin: 20px;
+      }
+      .carousel-container {
+        position: relative;
+        width: 300px;
+        margin-bottom: 40px;
       }
       .carousel {
         display: flex;
@@ -15,7 +20,6 @@
         width: 300px;
         height: 200px;
         border: 1px solid #ccc;
-        position: relative;
         background-color: #f0f0f0;
       }
       .carousel-slide {
@@ -34,7 +38,7 @@
         display: flex;
         justify-content: space-between;
         transform: translateY(-50%);
-        z-index: 1;
+        z-index: 10;
       }
       .carousel-controls button {
         background: rgba(0, 0, 0, 0.5);
