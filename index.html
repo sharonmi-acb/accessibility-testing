@@ -11,10 +11,31 @@
         width: 300px;
         height: 200px;
         border: 1px solid #ccc;
+        position: relative;
       }
       .carousel-slide {
         min-width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #f0f0f0;
         transition: transform 0.5s ease-in-out;
+      }
+      .carousel-controls {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        transform: translateY(-50%);
+      }
+      .carousel-controls button {
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
       }
     </style>
   </head>
@@ -24,10 +45,14 @@
     <!-- Success Case -->
     <section id="success-case">
       <h2>Success Case: Carousel Without Live Region</h2>
-      <div class="carousel">
+      <div class="carousel" id="carousel-success">
         <div class="carousel-slide">Slide 1</div>
         <div class="carousel-slide">Slide 2</div>
         <div class="carousel-slide">Slide 3</div>
+      </div>
+      <div class="carousel-controls">
+        <button onclick="prevSlide('carousel-success')">Previous</button>
+        <button onclick="nextSlide('carousel-success')">Next</button>
       </div>
       <p>
         No live region attributes are present, ensuring screen readers don't
@@ -38,10 +63,14 @@
     <!-- Fail Case -->
     <section id="fail-case">
       <h2>Fail Case: Carousel Tagged as Live Region</h2>
-      <div class="carousel" aria-live="polite">
+      <div class="carousel" id="carousel-fail" aria-live="polite">
         <div class="carousel-slide" aria-live="polite">Slide 1</div>
         <div class="carousel-slide" aria-live="polite">Slide 2</div>
         <div class="carousel-slide" aria-live="polite">Slide 3</div>
+      </div>
+      <div class="carousel-controls">
+        <button onclick="prevSlide('carousel-fail')">Previous</button>
+        <button onclick="nextSlide('carousel-fail')">Next</button>
       </div>
       <p>
         Each slide and the carousel itself are tagged with
@@ -57,5 +86,50 @@
         <code>aria-live</code> attributes that disrupt user experience.
       </p>
     </footer>
+
+    <script>
+      const carousels = {};
+
+      function initCarousel(id) {
+        const carousel = document.getElementById(id);
+        carousels[id] = {
+          element: carousel,
+          slides: carousel.querySelectorAll(".carousel-slide"),
+          currentIndex: 0,
+        };
+      }
+
+      function updateCarousel(id) {
+        const { slides, currentIndex } = carousels[id];
+        slides.forEach((slide, index) => {
+          slide.style.transform = `translateX(${
+            (index - currentIndex) * 100
+          }%)`;
+        });
+      }
+
+      function prevSlide(id) {
+        const carousel = carousels[id];
+        carousel.currentIndex =
+          (carousel.currentIndex - 1 + carousel.slides.length) %
+          carousel.slides.length;
+        updateCarousel(id);
+      }
+
+      function nextSlide(id) {
+        const carousel = carousels[id];
+        carousel.currentIndex =
+          (carousel.currentIndex + 1) % carousel.slides.length;
+        updateCarousel(id);
+      }
+
+      // Initialize both carousels
+      document.addEventListener("DOMContentLoaded", () => {
+        initCarousel("carousel-success");
+        initCarousel("carousel-fail");
+        updateCarousel("carousel-success");
+        updateCarousel("carousel-fail");
+      });
+    </script>
   </body>
 </html>
