@@ -3,45 +3,81 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Navigation Landmark Rule</title>
+    <title>Required Fields Accessibility</title>
     <style>
-      .box {
-        border: 1px solid #ccc;
-        padding: 10px;
-        margin: 10px 0;
+      .form-container {
+        margin: 20px 0;
+      }
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      input {
+        padding: 8px;
+        margin-bottom: 15px;
+        width: 100%;
+        max-width: 300px;
       }
     </style>
   </head>
   <body>
-    <h1>Navigation Landmark Examples</h1>
+    <h1>Required Fields Accessibility Examples</h1>
 
-    <!-- Failure Case -->
-    <section id="failure-case">
-      <h2>Failure Case: Improper Use of Navigation Tag</h2>
-      <nav class="box">
-        <p>
-          This section is improperly tagged as navigation but does not provide
-          any navigational links or purpose.
-        </p>
-      </nav>
+    <!-- Fail Case -->
+    <section id="fail-case">
+      <h2>Fail Case: Missing Required Field Tagging</h2>
+      <form class="form-container">
+        <label for="name-fail">Name:</label>
+        <input
+          type="text"
+          id="name-fail"
+          name="name"
+          placeholder="Enter your name"
+        />
+        <label for="email-fail">Email:</label>
+        <input
+          type="email"
+          id="email-fail"
+          name="email"
+          placeholder="Enter your email"
+        />
+        <button type="submit">Submit</button>
+      </form>
       <p>
-        <strong>Problem:</strong> A non-navigational element is incorrectly
-        coded as a <code>&lt;nav&gt;</code> tag.
+        <strong>Problem:</strong> The required fields are not marked with
+        <code>aria-required="true"</code>, leaving screen reader users unaware
+        that these fields are required.
       </p>
     </section>
 
     <!-- Success Case -->
     <section id="success-case">
-      <h2>Success Case: Correctly Tagged Non-Navigation Element</h2>
-      <div class="box" role="presentation">
-        <p>
-          This section is correctly marked as a non-navigational element using a
-          <code>&lt;div&gt;</code> tag and <code>role="presentation"</code>.
-        </p>
-      </div>
+      <h2>Pass Case: Required Fields Properly Tagged</h2>
+      <form class="form-container">
+        <label for="name-pass">Name (required):</label>
+        <input
+          type="text"
+          id="name-pass"
+          name="name"
+          placeholder="Enter your name"
+          aria-required="true"
+          required
+        />
+        <label for="email-pass">Email (required):</label>
+        <input
+          type="email"
+          id="email-pass"
+          name="email"
+          placeholder="Enter your email"
+          aria-required="true"
+          required
+        />
+        <button type="submit">Submit</button>
+      </form>
       <p>
-        <strong>Solution:</strong> Used a <code>&lt;div&gt;</code> with
-        <code>role="presentation"</code> to avoid misleading screen readers.
+        <strong>Solution:</strong> Added <code>aria-required="true"</code> and
+        <code>required</code> attributes to indicate the fields are required,
+        making them accessible to assistive technologies.
       </p>
     </section>
   </body>
