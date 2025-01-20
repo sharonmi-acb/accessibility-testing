@@ -3,35 +3,59 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Figure Tag Examples</title>
+    <title>Carousel Accessibility Examples</title>
+    <style>
+      .carousel {
+        display: flex;
+        overflow: hidden;
+        width: 300px;
+        height: 200px;
+        border: 1px solid #ccc;
+      }
+      .carousel-slide {
+        min-width: 100%;
+        transition: transform 0.5s ease-in-out;
+      }
+    </style>
   </head>
   <body>
-    <h1>Figure Tag Accessibility Examples</h1>
+    <h1>Carousel Accessibility Examples</h1>
 
-    <!-- Passing Example -->
-    <section id="passing-example">
-      <h2>Passing Example</h2>
-      <figure>
-        <img
-          src="photo.jpg"
-          alt="A beautiful landscape of mountains during sunrise"
-        />
-        <figcaption>
-          Photo taken in January 2020, 10 AM, Milano, Italy.
-        </figcaption>
-      </figure>
+    <!-- Success Case -->
+    <section id="success-case">
+      <h2>Success Case: Carousel Without Live Region</h2>
+      <div class="carousel">
+        <div class="carousel-slide">Slide 1</div>
+        <div class="carousel-slide">Slide 2</div>
+        <div class="carousel-slide">Slide 3</div>
+      </div>
+      <p>
+        No live region attributes are present, ensuring screen readers don't
+        announce slides unnecessarily.
+      </p>
     </section>
 
-    <!-- Failing Example -->
-    <section id="failing-example">
-      <h2>Failing Example</h2>
-      <figure>
-        <img
-          src="photo.jpg"
-          alt="A beautiful landscape of mountains during sunrise"
-        />
-        <!-- Missing figcaption -->
-      </figure>
+    <!-- Fail Case -->
+    <section id="fail-case">
+      <h2>Fail Case: Carousel Tagged as Live Region</h2>
+      <div class="carousel" aria-live="polite">
+        <div class="carousel-slide" aria-live="polite">Slide 1</div>
+        <div class="carousel-slide" aria-live="polite">Slide 2</div>
+        <div class="carousel-slide" aria-live="polite">Slide 3</div>
+      </div>
+      <p>
+        Each slide and the carousel itself are tagged with
+        <code>aria-live</code>, causing screen readers to announce every slide
+        change.
+      </p>
     </section>
+
+    <!-- Note -->
+    <footer>
+      <p>
+        Always test carousels for accessibility and avoid unnecessary
+        <code>aria-live</code> attributes that disrupt user experience.
+      </p>
+    </footer>
   </body>
 </html>
