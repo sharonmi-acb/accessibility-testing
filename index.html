@@ -3,147 +3,46 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Accessible Carousel Examples</title>
+    <title>Navigation Landmark Rule</title>
     <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 20px;
-      }
-      .carousel-container {
-        position: relative;
-        width: 300px;
-        margin-bottom: 40px;
-      }
-      .carousel {
-        display: flex;
-        overflow: hidden;
-        width: 300px;
-        height: 200px;
+      .box {
         border: 1px solid #ccc;
-        background-color: #f0f0f0;
-      }
-      .carousel-slide {
-        min-width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 18px;
-        transition: transform 0.5s ease-in-out;
-      }
-      .carousel-controls {
-        position: absolute;
-        top: 50%;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        transform: translateY(-50%);
-        z-index: 10;
-      }
-      .carousel-controls button {
-        background: rgba(0, 0, 0, 0.5);
-        color: white;
-        border: none;
-        padding: 10px 15px;
-        cursor: pointer;
-        font-size: 14px;
-      }
-      .carousel-controls button:hover {
-        background: rgba(0, 0, 0, 0.7);
+        padding: 10px;
+        margin: 10px 0;
       }
     </style>
   </head>
   <body>
-    <h1>Accessible Carousel Examples</h1>
+    <h1>Navigation Landmark Examples</h1>
+
+    <!-- Failure Case -->
+    <section id="failure-case">
+      <h2>Failure Case: Improper Use of Navigation Tag</h2>
+      <nav class="box">
+        <p>
+          This section is improperly tagged as navigation but does not provide
+          any navigational links or purpose.
+        </p>
+      </nav>
+      <p>
+        <strong>Problem:</strong> A non-navigational element is incorrectly
+        coded as a <code>&lt;nav&gt;</code> tag.
+      </p>
+    </section>
 
     <!-- Success Case -->
     <section id="success-case">
-      <h2>Success Case: Carousel Without Live Region</h2>
-      <div class="carousel-container">
-        <div class="carousel" id="carousel-success">
-          <div class="carousel-slide">Slide 1</div>
-          <div class="carousel-slide">Slide 2</div>
-          <div class="carousel-slide">Slide 3</div>
-        </div>
-        <div class="carousel-controls">
-          <button onclick="prevSlide('carousel-success')">Previous</button>
-          <button onclick="nextSlide('carousel-success')">Next</button>
-        </div>
+      <h2>Success Case: Correctly Tagged Non-Navigation Element</h2>
+      <div class="box" role="presentation">
+        <p>
+          This section is correctly marked as a non-navigational element using a
+          <code>&lt;div&gt;</code> tag and <code>role="presentation"</code>.
+        </p>
       </div>
       <p>
-        No live region attributes are present, ensuring screen readers don't
-        announce slides unnecessarily.
+        <strong>Solution:</strong> Used a <code>&lt;div&gt;</code> with
+        <code>role="presentation"</code> to avoid misleading screen readers.
       </p>
     </section>
-
-    <!-- Fail Case -->
-    <section id="fail-case">
-      <h2>Fail Case: Carousel Tagged as Live Region</h2>
-      <div class="carousel-container">
-        <div class="carousel" id="carousel-fail" aria-live="polite">
-          <div class="carousel-slide" aria-live="polite">Slide 1</div>
-          <div class="carousel-slide" aria-live="polite">Slide 2</div>
-          <div class="carousel-slide" aria-live="polite">Slide 3</div>
-        </div>
-        <div class="carousel-controls">
-          <button onclick="prevSlide('carousel-fail')">Previous</button>
-          <button onclick="nextSlide('carousel-fail')">Next</button>
-        </div>
-      </div>
-      <p>
-        Each slide and the carousel itself are tagged with
-        <code>aria-live</code>, causing screen readers to announce every slide
-        change.
-      </p>
-    </section>
-
-    <script>
-      const carousels = {};
-
-      // Initialize carousel functionality
-      function initCarousel(id) {
-        const carousel = document.getElementById(id);
-        carousels[id] = {
-          element: carousel,
-          slides: carousel.querySelectorAll(".carousel-slide"),
-          currentIndex: 0,
-        };
-      }
-
-      // Update carousel slides
-      function updateCarousel(id) {
-        const { slides, currentIndex } = carousels[id];
-        slides.forEach((slide, index) => {
-          slide.style.transform = `translateX(${
-            (index - currentIndex) * 100
-          }%)`;
-        });
-      }
-
-      // Move to previous slide
-      function prevSlide(id) {
-        const carousel = carousels[id];
-        carousel.currentIndex =
-          (carousel.currentIndex - 1 + carousel.slides.length) %
-          carousel.slides.length;
-        updateCarousel(id);
-      }
-
-      // Move to next slide
-      function nextSlide(id) {
-        const carousel = carousels[id];
-        carousel.currentIndex =
-          (carousel.currentIndex + 1) % carousel.slides.length;
-        updateCarousel(id);
-      }
-
-      // Initialize carousels on page load
-      document.addEventListener("DOMContentLoaded", () => {
-        initCarousel("carousel-success");
-        initCarousel("carousel-fail");
-        updateCarousel("carousel-success");
-        updateCarousel("carousel-fail");
-      });
-    </script>
   </body>
 </html>
