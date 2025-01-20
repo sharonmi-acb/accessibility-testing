@@ -3,31 +3,35 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Non-Compliant Footer</title>
+    <title>Figure Tag Examples</title>
   </head>
   <body>
-    <header>
-      <h1>Website Title</h1>
-      <nav>
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
+    <h1>Figure Tag Accessibility Examples</h1>
 
-    <main>
-      <section id="home">
-        <h2>Welcome to Our Website</h2>
-        <p>This is the home section.</p>
-      </section>
-    </main>
+    <!-- Passing Example -->
+    <section id="passing-example">
+      <h2>Passing Example</h2>
+      <figure>
+        <img
+          src="photo.jpg"
+          alt="A beautiful landscape of mountains during sunrise"
+        />
+        <figcaption>
+          Photo taken in January 2020, 10 AM, Milano, Italy.
+        </figcaption>
+      </figure>
+    </section>
 
-    <!-- Non-compliant footer -->
-    <div role="contentinfo">
-      <p>&copy; 2025 Your Company Name. All rights reserved.</p>
-      <p>Follow us on <a href="#">Twitter</a> and <a href="#">Facebook</a>.</p>
-    </div>
+    <!-- Failing Example -->
+    <section id="failing-example">
+      <h2>Failing Example</h2>
+      <figure>
+        <img
+          src="photo.jpg"
+          alt="A beautiful landscape of mountains during sunrise"
+        />
+        <!-- Missing figcaption -->
+      </figure>
+    </section>
   </body>
 </html>
