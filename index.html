@@ -53,20 +53,21 @@
     <h1>Carousel Accessibility Examples</h1>
 
     <!-- Success Case -->
-    <section id="success-case">
-      <h2>Success Case: Carousel Without Live Region</h2>
-      <div class="carousel" id="carousel-success">
+    <section id="fail-case" class="lala">
+      <h2>success Case: Carousel without Live Region</h2>
+      <div class="carousel" i>
         <div class="carousel-slide">Slide 1</div>
         <div class="carousel-slide">Slide 2</div>
         <div class="carousel-slide">Slide 3</div>
       </div>
       <div class="carousel-controls">
-        <button onclick="prevSlide('carousel-success')">Previous</button>
-        <button onclick="nextSlide('carousel-success')">Next</button>
+        <button onclick="prevSlide('carousel-fail')">Previous</button>
+        <button onclick="nextSlide('carousel-fail')">Next</button>
       </div>
       <p>
-        No live region attributes are present, ensuring screen readers don't
-        announce slides unnecessarily.
+        Each slide and the carousel itself are tagged with
+        <code>aria-live</code>, causing screen readers to announce every slide
+        change.
       </p>
     </section>
 
