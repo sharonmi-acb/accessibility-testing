@@ -30,9 +30,9 @@
       <h2>Fail Case: Navigation with Text Nodes</h2>
       <nav>
         <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Contact</li>
+          <li id="fail-home">Home</li>
+          <li id="fail-about">About</li>
+          <li id="fail-contact">Contact</li>
         </ul>
       </nav>
       <p>
@@ -47,13 +47,13 @@
       <h2>Pass Case: Navigation with Proper Elements</h2>
       <nav>
         <ul>
-          <li><a href="#" class="nav-link">Home</a></li>
-          <li>
+          <li id="pass-home"><a href="#" class="nav-link">Home</a></li>
+          <li id="pass-about">
             <button class="nav-link" onclick="alert('About clicked')">
               About
             </button>
           </li>
-          <li>
+          <li id="pass-contact">
             <span
               class="nav-link"
               role="link"
