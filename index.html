@@ -3,72 +3,83 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Navigation Item Accessibility</title>
+    <title>Button Functionality Accessibility</title>
     <style>
-      nav {
-        margin: 20px 0;
-      }
-      ul {
-        list-style: none;
-        padding: 0;
-      }
-      li {
+      .interactive {
+        display: inline-block;
+        padding: 10px 15px;
+        background-color: #007bff;
+        color: white;
+        text-align: center;
+        border-radius: 5px;
+        cursor: pointer;
         margin: 10px 0;
       }
-      .nav-link {
-        cursor: pointer;
-        color: blue;
-        text-decoration: underline;
+      .interactive:hover {
+        background-color: #0056b3;
       }
     </style>
   </head>
   <body>
-    <h1>Navigation Item Accessibility Examples</h1>
+    <h1>Button Functionality Accessibility Examples</h1>
 
     <!-- Fail Case -->
     <section id="fail-case">
-      <h2>Fail Case: Navigation with Text Nodes</h2>
-      <nav>
-        <ul>
-          <li id="fail-home">Home</li>
-          <li id="fail-about">About</li>
-          <li id="fail-contact">Contact</li>
-        </ul>
-      </nav>
+      <h2>Fail Case: Improper Button Implementation</h2>
+      <div
+        class="interactive"
+        id="fail-div-button"
+        onclick="alert('This is a DIV acting as a button')"
+      >
+        This is a DIV acting as a button without proper role
+      </div>
+      <a
+        href="#"
+        class="interactive"
+        id="fail-link-button"
+        onclick="alert('This is a link acting as a button')"
+      >
+        This is a link acting as a button without proper role
+      </a>
       <p>
-        <strong>Problem:</strong> Navigation items are plain text nodes without
-        any interactive elements like links or buttons, making them inaccessible
-        to assistive technologies.
+        <strong>Problem:</strong> These elements lack the proper
+        <code>role="button"</code> attribute, making them inaccessible to screen
+        readers.
       </p>
     </section>
 
     <!-- Success Case -->
     <section id="success-case">
-      <h2>Pass Case: Navigation with Proper Elements</h2>
-      <nav>
-        <ul>
-          <li id="pass-home"><a href="#" class="nav-link">Home</a></li>
-          <li id="pass-about">
-            <button class="nav-link" onclick="alert('About clicked')">
-              About
-            </button>
-          </li>
-          <li id="pass-contact">
-            <span
-              class="nav-link"
-              role="link"
-              tabindex="0"
-              onclick="alert('Contact clicked')"
-              >Contact</span
-            >
-          </li>
-        </ul>
-      </nav>
+      <h2>Pass Case: Proper Button Implementation</h2>
+      <div
+        class="interactive"
+        id="pass-div-button"
+        role="button"
+        tabindex="0"
+        onclick="alert('This is a DIV acting as a button')"
+      >
+        This is a DIV acting as a button with proper role
+      </div>
+      <span
+        class="interactive"
+        id="pass-span-button"
+        role="button"
+        tabindex="0"
+        onclick="alert('This is a SPAN acting as a button')"
+      >
+        This is a SPAN acting as a button with proper role
+      </span>
+      <button
+        id="pass-native-button"
+        type="button"
+        onclick="alert('This is a native button')"
+      >
+        This is a native button
+      </button>
       <p>
-        <strong>Solution:</strong> Used interactive elements such as
-        <code>&lt;a&gt;</code>, <code>&lt;button&gt;</code>, and
-        <code>&lt;span&gt;</code> with appropriate ARIA roles and event handlers
-        for navigation, ensuring accessibility.
+        <strong>Solution:</strong> Proper roles, <code>role="button"</code>, and
+        <code>tabindex="0"</code> attributes were added to non-native elements,
+        and a native button element was used where possible.
       </p>
     </section>
   </body>
