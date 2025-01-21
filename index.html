@@ -3,88 +3,72 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Required Fields Accessibility</title>
+    <title>Navigation Item Accessibility</title>
     <style>
-      .form-container {
+      nav {
         margin: 20px 0;
       }
-      label {
-        display: block;
-        margin-bottom: 5px;
+      ul {
+        list-style: none;
+        padding: 0;
       }
-      input {
-        padding: 8px;
-        margin-bottom: 15px;
-        width: 100%;
-        max-width: 300px;
+      li {
+        margin: 10px 0;
+      }
+      .nav-link {
+        cursor: pointer;
+        color: blue;
+        text-decoration: underline;
       }
     </style>
   </head>
   <body>
-    <h1>Required Fields Accessibility Examples</h1>
+    <h1>Navigation Item Accessibility Examples</h1>
 
     <!-- Fail Case -->
     <section id="fail-case">
-      <h2>Fail Case: Missing Required Field Tagging</h2>
-      <form class="form-container">
-        <label for="name-fail">Name:</label>
-        <input
-          type="text"
-          id="name-fail"
-          name="name"
-          placeholder="Enter your name"
-        />
-        <label for="email-fail">Email:</label>
-        <input
-          type="email"
-          id="email-fail"
-          name="email"
-          placeholder="Enter your email"
-        />
-        <button type="submit">Submit</button>
-        <label for="select">Select *</label>
-        <select id="select">
-          <option>opt1</option>
-          <option>opt2</option>
-        </select>
-        <label for="name">Name*</label>
-        <input id="name" type="text" />
-      </form>
+      <h2>Fail Case: Navigation with Text Nodes</h2>
+      <nav>
+        <ul>
+          <li>Home</li>
+          <li>About</li>
+          <li>Contact</li>
+        </ul>
+      </nav>
       <p>
-        <strong>Problem:</strong> The required fields are not marked with
-        <code>aria-required="true"</code>, leaving screen reader users unaware
-        that these fields are required.
+        <strong>Problem:</strong> Navigation items are plain text nodes without
+        any interactive elements like links or buttons, making them inaccessible
+        to assistive technologies.
       </p>
     </section>
 
     <!-- Success Case -->
     <section id="success-case">
-      <h2>Pass Case: Required Fields Properly Tagged</h2>
-      <form class="form-container">
-        <label for="name-pass">Name (required):</label>
-        <input
-          type="text"
-          id="name-pass"
-          name="name"
-          placeholder="Enter your name"
-          aria-required="true"
-          required
-        />
-        <label for="email-pass">Email (required):</label>
-        <input
-          type="email"
-          id="email-pass"
-          name="email"
-          placeholder="Enter your email"
-          aria-required="true"
-          required
-        />
-        <button type="submit">Submit</button>
-      </form>
+      <h2>Pass Case: Navigation with Proper Elements</h2>
+      <nav>
+        <ul>
+          <li><a href="#" class="nav-link">Home</a></li>
+          <li>
+            <button class="nav-link" onclick="alert('About clicked')">
+              About
+            </button>
+          </li>
+          <li>
+            <span
+              class="nav-link"
+              role="link"
+              tabindex="0"
+              onclick="alert('Contact clicked')"
+              >Contact</span
+            >
+          </li>
+        </ul>
+      </nav>
       <p>
-        <strong>Solution:</strong> Added <code>aria-required="true"</code> and
-        <code>required</code> attributes to indicate the fields are required,
-        making them accessible to assistive technologies.
+        <strong>Solution:</strong> Used interactive elements such as
+        <code>&lt;a&gt;</code>, <code>&lt;button&gt;</code>, and
+        <code>&lt;span&gt;</code> with appropriate ARIA roles and event handlers
+        for navigation, ensuring accessibility.
       </p>
     </section>
   </body>
