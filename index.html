@@ -3,83 +3,52 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Button Functionality Accessibility</title>
+    <title>Iframe Accessibility</title>
     <style>
-      .interactive {
-        display: inline-block;
-        padding: 10px 15px;
-        background-color: #007bff;
-        color: white;
-        text-align: center;
-        border-radius: 5px;
-        cursor: pointer;
+      iframe {
+        border: 1px solid #ccc;
+        width: 100%;
+        max-width: 500px;
+        height: 300px;
         margin: 10px 0;
-      }
-      .interactive:hover {
-        background-color: #0056b3;
       }
     </style>
   </head>
   <body>
-    <h1>Button Functionality Accessibility Examples</h1>
+    <h1>Iframe Accessibility Examples</h1>
 
     <!-- Fail Case -->
     <section id="fail-case">
-      <h2>Fail Case: Improper Button Implementation</h2>
-      <div
-        class="interactive"
-        id="fail-div-button"
-        onclick="alert('This is a DIV acting as a button')"
-      >
-        This is a DIV acting as a button without proper role
-      </div>
-      <a
-        href="#"
-        class="interactive"
-        id="fail-link-button"
-        onclick="alert('This is a link acting as a button')"
-      >
-        This is a link acting as a button without proper role
-      </a>
+      <h2>Fail Case: Unlabeled Iframes</h2>
+      <iframe id="fail-unlabeled-iframe" src="https://www.example.com"></iframe>
       <p>
-        <strong>Problem:</strong> These elements lack the proper
-        <code>role="button"</code> attribute, making them inaccessible to screen
-        readers.
+        <strong>Problem:</strong> The iframe lacks an accessible label or
+        description, leaving assistive technology users unaware of its purpose.
       </p>
     </section>
 
     <!-- Success Case -->
     <section id="success-case">
-      <h2>Pass Case: Proper Button Implementation</h2>
-      <div
-        class="interactive"
-        id="pass-div-button"
-        role="button"
-        tabindex="0"
-        onclick="alert('This is a DIV acting as a button')"
-      >
-        This is a DIV acting as a button with proper role
-      </div>
-      <span
-        class="interactive"
-        id="pass-span-button"
-        role="button"
-        tabindex="0"
-        onclick="alert('This is a SPAN acting as a button')"
-      >
-        This is a SPAN acting as a button with proper role
-      </span>
-      <button
-        id="pass-native-button"
-        type="button"
-        onclick="alert('This is a native button')"
-      >
-        This is a native button
-      </button>
+      <h2>Pass Case: Properly Labeled Iframes</h2>
+      <iframe
+        id="success-labeled-iframe"
+        src="https://www.example.com"
+        aria-label="Example website for additional information"
+      ></iframe>
       <p>
-        <strong>Solution:</strong> Proper roles, <code>role="button"</code>, and
-        <code>tabindex="0"</code> attributes were added to non-native elements,
-        and a native button element was used where possible.
+        <strong>Solution:</strong> Added an <code>aria-label</code> to describe
+        the iframe's functionality or content, ensuring it is accessible to
+        screen readers.
+      </p>
+
+      <iframe
+        id="success-title-iframe"
+        src="https://www.example.com"
+        title="Example website title"
+      ></iframe>
+      <p>
+        <strong>Solution:</strong> Used the <code>title</code> attribute to
+        provide a label for the iframe.
       </p>
     </section>
   </body>
