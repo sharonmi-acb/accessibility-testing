@@ -5,38 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Popup Accessibility Examples</title>
     <style>
-      .popup {
-        width: 300px;
-        height: 200px;
-        background-color: #f8f8f8;
-        border: 1px solid #ccc;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        padding: 20px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        display: none;
-      }
-      .popup.show {
+      dialog {
         display: block;
+        width: 250px;
+        height: 200px;
       }
     </style>
   </head>
   <body>
-    <dialog id="pass_3_ue" style="display: block; width: 250px; height: 200px">
+    <dialog>
       this is a dialog
       <button>next</button>
     </dialog>
-
-    <script>
-      function openPopup(id) {
-        document.getElementById(id).classList.add("show");
-      }
-
-      function closePopup(id) {
-        document.getElementById(id).classList.remove("show");
-      }
-    </script>
   </body>
 </html>
