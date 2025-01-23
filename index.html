@@ -3,19 +3,64 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Popup Accessibility Examples</title>
+    <title>Navigation Landmarks Accessibility</title>
     <style>
-      dialog {
-        display: block;
-        width: 250px;
-        height: 200px;
+      nav,
+      div {
+        margin: 20px 0;
+        padding: 10px;
+        border: 1px solid #ccc;
+        background-color: #f9f9f9;
       }
     </style>
   </head>
   <body>
-    <dialog>
-      this is a dialog
-      <button>next</button>
-    </dialog>
+    <h1>Navigation Landmarks Accessibility Examples</h1>
+
+    <!-- Fail Case -->
+    <section id="fail-case">
+      <h2>Fail Case: Navigation Without Proper Tagging</h2>
+      <div id="fail-navigation-1">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div id="fail-navigation-2">
+        <p>
+          This is a navigation section, but it is not tagged as a landmark or
+          using proper navigation tags.
+        </p>
+      </div>
+      <p>
+        <strong>Problem:</strong> These navigation regions are not marked with
+        <code>role="navigation"</code> or the <code>&lt;nav&gt;</code> element,
+        making them inaccessible to screen readers.
+      </p>
+    </section>
+
+    <!-- Success Case -->
+    <section id="success-case">
+      <h2>Pass Case: Properly Tagged Navigation Landmarks</h2>
+      <nav id="success-navigation-1" aria-label="Main site navigation">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+      <nav id="success-navigation-2" aria-label="Footer navigation">
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </nav>
+      <p>
+        <strong>Solution:</strong> Navigation regions are marked with the
+        <code>&lt;nav&gt;</code> element and labeled using
+        <code>aria-label</code> to provide context for screen readers.
+      </p>
+    </section>
   </body>
 </html>
