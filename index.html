@@ -3,53 +3,78 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Iframe Accessibility</title>
+    <title>Popup Accessibility Examples</title>
     <style>
-      iframe {
+      .popup {
+        width: 300px;
+        height: 200px;
+        background-color: #f8f8f8;
         border: 1px solid #ccc;
-        width: 100%;
-        max-width: 500px;
-        height: 300px;
-        margin: 10px 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: none;
+      }
+      .popup.show {
+        display: block;
       }
     </style>
   </head>
   <body>
-    <h1>Iframe Accessibility Examples</h1>
+    <h1>Popup Accessibility Examples</h1>
 
     <!-- Fail Case -->
     <section id="fail-case">
-      <h2>Fail Case: Unlabeled Iframes</h2>
-      <iframe id="fail-unlabeled-iframe" src="https://www.example.com"></iframe>
+      <h2>Fail Case: Popup Without Proper Roles</h2>
+      <div id="fail-popup" class="popup">
+        <p>This popup lacks proper ARIA roles and attributes.</p>
+        <button onclick="closePopup('fail-popup')">Close</button>
+      </div>
+      <button onclick="openPopup('fail-popup')">Open Failing Popup</button>
       <p>
-        <strong>Problem:</strong> The iframe lacks an accessible label or
-        description, leaving assistive technology users unaware of its purpose.
+        <strong>Problem:</strong> This popup is not marked with
+        <code>role="dialog"</code> or <code>aria-modal="true"</code>, making it
+        inaccessible to screen readers.
       </p>
     </section>
 
     <!-- Success Case -->
     <section id="success-case">
-      <h2>Pass Case: Properly Labeled Iframes</h2>
-      <iframe
-        id="success-labeled-iframe"
-        src="https://www.example.com"
-        aria-label="Example website for additional information"
-      ></iframe>
+      <h2>Pass Case: Popup With Proper Roles</h2>
+      <div
+        id="success-popup"
+        class="popup"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="popup-title"
+        aria-describedby="popup-description"
+      >
+        <h2 id="popup-title">Popup Title</h2>
+        <p id="popup-description">
+          This is a properly tagged popup with accessible roles and attributes.
+        </p>
+        <button onclick="closePopup('success-popup')">Close</button>
+      </div>
+      <button onclick="openPopup('success-popup')">Open Passing Popup</button>
       <p>
-        <strong>Solution:</strong> Added an <code>aria-label</code> to describe
-        the iframe's functionality or content, ensuring it is accessible to
-        screen readers.
-      </p>
-
-      <iframe
-        id="success-title-iframe"
-        src="https://www.example.com"
-        title="Example website title"
-      ></iframe>
-      <p>
-        <strong>Solution:</strong> Used the <code>title</code> attribute to
-        provide a label for the iframe.
+        <strong>Solution:</strong> The popup is marked with
+        <code>role="dialog"</code> and <code>aria-modal="true"</code>, and
+        includes appropriate labels for the title and description to ensure
+        accessibility.
       </p>
     </section>
+
+    <script>
+      function openPopup(id) {
+        document.getElementById(id).classList.add("show");
+      }
+
+      function closePopup(id) {
+        document.getElementById(id).classList.remove("show");
+      }
+    </script>
   </body>
 </html>
