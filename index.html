@@ -24,65 +24,6 @@
     </style>
   </head>
   <body>
-    <h1>Popup Accessibility Examples</h1>
-
-    <!-- Fail Case -->
-    <section id="fail-case">
-      <h2>Fail Case: Popup Without Proper Roles</h2>
-      <div id="fail-popup" class="popup">
-        <p>This popup lacks proper ARIA roles and attributes.</p>
-        <button onclick="closePopup('fail-popup')">Close</button>
-      </div>
-      <button onclick="openPopup('fail-popup')">Open Failing Popup</button>
-      <p>
-        <strong>Problem:</strong> This popup is not marked with
-        <code>role="dialog"</code> or <code>aria-modal="true"</code>, making it
-        inaccessible to screen readers.
-      </p>
-    </section>
-
-    <!-- Success Case -->
-    <section id="success-case">
-      <h2>Pass Case: Popup With Proper Roles</h2>
-      <div
-        id="success-popup"
-        class="popup"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="popup-title"
-        aria-describedby="popup-description"
-      >
-        <h2 id="popup-title">Popup Title</h2>
-        <p id="popup-description">
-          This is a properly tagged popup with accessible roles and attributes.
-        </p>
-        <button onclick="closePopup('success-popup')">Close</button>
-      </div>
-      <button onclick="openPopup('success-popup')">Open Passing Popup</button>
-      <p>
-        <strong>Solution:</strong> The popup is marked with
-        <code>role="dialog"</code> and <code>aria-modal="true"</code>, and
-        includes appropriate labels for the title and description to ensure
-        accessibility.
-      </p>
-    </section>
-
-    <div id="fail_1" data-aflw-popup="true" role="dialog">No aria-modal</div>
-    <div id="fail_2" data-aflw-popup="true" aria-modal="true">
-      No role dialog
-    </div>
-
-    <dialog id="pass_1" class="popup" data-aflw-popup="true" open>Modal</dialog>
-    <div
-      id="pass_2"
-      class="popup"
-      data-aflw-popup="true"
-      aria-modal="true"
-      role="dialog"
-    >
-      Modal
-    </div>
-
     <dialog id="pass_3_ue" style="display: block; width: 250px; height: 200px">
       this is a dialog
       <button>next</button>
