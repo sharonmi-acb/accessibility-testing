@@ -3,19 +3,67 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Popup Accessibility Examples</title>
-    <style>
-      dialog {
-        display: block;
-        width: 250px;
-        height: 200px;
-      }
-    </style>
+    <title>Accessibility Test Cases</title>
   </head>
   <body>
-    <dialog>
-      this is a dialog
-      <button>next</button>
-    </dialog>
+    <h1>Accessibility Test Cases</h1>
+
+    <section>
+      <h2>Test 1: Empty Headings</h2>
+      <!-- Fail Case: Empty heading -->
+      <h3></h3>
+
+      <!-- Pass Case: Heading with content -->
+      <h3>Properly labeled heading</h3>
+    </section>
+
+    <section>
+      <h2>Test 2: Missing Navigation Items</h2>
+      <!-- Fail Case: Direct text inside navigation -->
+      <nav>
+        <ul>
+          <li>Home</li>
+          <li>About</li>
+        </ul>
+      </nav>
+
+      <!-- Pass Case: Using links or buttons -->
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><button onclick="location.href='#'">About</button></li>
+        </ul>
+      </nav>
+    </section>
+
+    <section>
+      <h2>Test 3: Iframe Labeling</h2>
+      <!-- Fail Case: Unlabeled iframe -->
+      <iframe src="https://example.com"></iframe>
+
+      <!-- Pass Case: Properly labeled iframe -->
+      <iframe
+        src="https://example.com"
+        aria-label="Example embedded content"
+      ></iframe>
+    </section>
+
+    <section>
+      <h2>Test 4: Misused Navigation Tagging</h2>
+      <!-- Fail Case: Incorrect use of <nav> for non-navigation content -->
+      <nav>
+        <p>This is just some random content inside a navigation tag.</p>
+      </nav>
+
+      <!-- Pass Case: Using role="presentation" for improper navigation -->
+      <nav role="presentation">
+        <p>This is just some random content, but properly marked.</p>
+      </nav>
+
+      <!-- Pass Case: Using <div> instead of <nav> for non-navigation elements -->
+      <div>
+        <p>This is correctly placed inside a div.</p>
+      </div>
+    </section>
   </body>
 </html>
