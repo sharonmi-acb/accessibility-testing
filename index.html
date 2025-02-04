@@ -3,44 +3,59 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Field Required Accessibility Test</title>
+    <title>Navigation Tagging Test</title>
   </head>
   <body>
-    <h1>Field Required Test Cases</h1>
+    <h1>Navigation Tagging Test Cases</h1>
 
-    <form>
-      <h2>Passing Cases</h2>
+    <!-- PASS CASES -->
+    <nav id="pass-case-1" aria-label="Main site navigation">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
 
-      <!-- PASS: Properly marked required field with aria-required -->
-      <label for="pass1">Name (with aria-required):</label>
-      <input id="pass1" type="text" required aria-required="true" />
-      <br />
+    <nav id="pass-case-2" aria-label="Products">
+      <ul>
+        <li><a href="#">Shoes</a></li>
+        <li><a href="#">Clothing</a></li>
+        <li><a href="#">Accessories</a></li>
+      </ul>
+    </nav>
 
-      <!-- PASS: Using native required attribute (acceptable in some contexts) -->
-      <label for="pass2">Email (using required only):</label>
-      <input id="pass2" type="email" required />
-      <br />
+    <nav id="pass-case-3" aria-label="Support">
+      <ul>
+        <li><a href="#">Help Center</a></li>
+        <li><a href="#">FAQs</a></li>
+        <li><a href="#">Live Chat</a></li>
+      </ul>
+    </nav>
 
-      <h2>Failing Cases</h2>
+    <!-- FAIL CASES -->
+    <div id="fail-case-1">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
 
-      <!-- FAIL: Missing required and aria-required attributes -->
-      <label for="fail1">Username *</label>
-      <input id="fail1" type="text" />
-      <br />
+    <section id="fail-case-2">
+      <ul>
+        <li><a href="#">Shoes</a></li>
+        <li><a href="#">Clothing</a></li>
+        <li><a href="#">Accessories</a></li>
+      </ul>
+    </section>
 
-      <!-- FAIL: Required field but missing aria-required -->
-      <label for="fail2">Password (missing aria-required):</label>
-      <input id="fail2" type="password" required />
-      <br />
-
-      <!-- FAIL: Aria-required set to false incorrectly -->
-      <label for="fail3"
-        >Confirm Password (aria-required set incorrectly):</label
-      >
-      <input id="fail3" type="password" required aria-required="false" />
-      <br />
-
-      <button type="submit">Submit</button>
-    </form>
+    <div id="fail-case-3" role="navigation">
+      <ul>
+        <li><a href="#">Help Center</a></li>
+        <li><a href="#">FAQs</a></li>
+        <li><a href="#">Live Chat</a></li>
+      </ul>
+    </div>
   </body>
 </html>
