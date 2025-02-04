@@ -2,67 +2,45 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Accessibility Test Cases</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Field Required Accessibility Test</title>
   </head>
   <body>
-    <h1>Accessibility Test Cases</h1>
+    <h1>Field Required Test Cases</h1>
 
-    <section>
-      <h2>Test 1: Empty Headings</h2>
-      <!-- Fail Case: Empty heading -->
-      <h3></h3>
+    <form>
+      <h2>Passing Cases</h2>
 
-      <!-- Pass Case: Heading with content -->
-      <h3>Properly labeled heading</h3>
-    </section>
+      <!-- PASS: Properly marked required field with aria-required -->
+      <label for="pass1">Name (with aria-required):</label>
+      <input id="pass1" type="text" required aria-required="true" />
+      <br />
 
-    <section>
-      <h2>Test 2: Missing Navigation Items</h2>
-      <!-- Fail Case: Direct text inside navigation -->
-      <nav>
-        <ul>
-          <li>Home</li>
-          <li>About</li>
-        </ul>
-      </nav>
+      <!-- PASS: Using native required attribute (acceptable in some contexts) -->
+      <label for="pass2">Email (using required only):</label>
+      <input id="pass2" type="email" required />
+      <br />
 
-      <!-- Pass Case: Using links or buttons -->
-      <nav>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><button onclick="location.href='#'">About</button></li>
-        </ul>
-      </nav>
-    </section>
+      <h2>Failing Cases</h2>
 
-    <section>
-      <h2>Test 3: Iframe Labeling</h2>
-      <!-- Fail Case: Unlabeled iframe -->
-      <iframe src="https://example.com"></iframe>
+      <!-- FAIL: Missing required and aria-required attributes -->
+      <label for="fail1">Username (missing required attributes):</label>
+      <input id="fail1" type="text" />
+      <br />
 
-      <!-- Pass Case: Properly labeled iframe -->
-      <iframe
-        src="https://example.com"
-        aria-label="Example embedded content"
-      ></iframe>
-    </section>
+      <!-- FAIL: Required field but missing aria-required -->
+      <label for="fail2">Password (missing aria-required):</label>
+      <input id="fail2" type="password" required />
+      <br />
 
-    <section>
-      <h2>Test 4: Misused Navigation Tagging</h2>
-      <!-- Fail Case: Incorrect use of <nav> for non-navigation content -->
-      <nav>
-        <p>This is just some random content inside a navigation tag.</p>
-      </nav>
+      <!-- FAIL: Aria-required set to false incorrectly -->
+      <label for="fail3"
+        >Confirm Password (aria-required set incorrectly):</label
+      >
+      <input id="fail3" type="password" required aria-required="false" />
+      <br />
 
-      <!-- Pass Case: Using role="presentation" for improper navigation -->
-      <nav role="presentation">
-        <p>This is just some random content, but properly marked.</p>
-      </nav>
-
-      <!-- Pass Case: Using <div> instead of <nav> for non-navigation elements -->
-      <div>
-        <p>This is correctly placed inside a div.</p>
-      </div>
-    </section>
+      <button type="submit">Submit</button>
+    </form>
   </body>
 </html>
