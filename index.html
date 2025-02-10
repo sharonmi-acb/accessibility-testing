@@ -3,59 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Navigation Tagging Test</title>
+    <title>Accessible Footer</title>
   </head>
   <body>
-    <h1>Navigation Tagging Test Cases</h1>
+    <header>
+      <h1>Website Title</h1>
+    </header>
 
-    <!-- PASS CASES -->
-    <nav id="pass-case-1" aria-label="Main site navigation">
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </nav>
+    <main>
+      <p>Main content goes here...</p>
+    </main>
 
-    <nav id="pass-case-2" aria-label="Products">
-      <ul>
-        <li><a href="#">Shoes</a></li>
-        <li><a href="#">Clothing</a></li>
-        <li><a href="#">Accessories</a></li>
-      </ul>
-    </nav>
-
-    <nav id="pass-case-3" aria-label="Support">
-      <ul>
-        <li><a href="#">Help Center</a></li>
-        <li><a href="#">FAQs</a></li>
-        <li><a href="#">Live Chat</a></li>
-      </ul>
-    </nav>
-
-    <!-- FAIL CASES -->
-    <div id="fail-case-1">
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </div>
-
-    <section id="fail-case-2">
-      <ul>
-        <li><a href="#">Shoes</a></li>
-        <li><a href="#">Clothing</a></li>
-        <li><a href="#">Accessories</a></li>
-      </ul>
-    </section>
-
-    <div id="fail-case-3" role="navigation">
-      <ul>
-        <li><a href="#">Help Center</a></li>
-        <li><a href="#">FAQs</a></li>
-        <li><a href="#">Live Chat</a></li>
-      </ul>
-    </div>
+    <!-- ✅ Properly marked footer -->
+    <footer role="contentinfo" aria-label="footer">
+      <p>&copy; 2024 My Website. All rights reserved.</p>
+    </footer>
   </body>
 </html>
