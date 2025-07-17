@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>French Pastries - Sweet Delights Bakery</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="logo">
+          <i class="fas fa-birthday-cake"></i>
+          <h1>Sweet Delights</h1>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="cookies.html">Cookies</a></li>
+            <li><a href="cakes.html">Cakes</a></li>
+            <li><a href="pastries.html" class="active">Pastries</a></li>
+            <li>
+              <a href="cart.html" id="cart-btn"
+                ><i class="fas fa-shopping-cart"></i> Cart (<span
+                  id="cart-count"
+                  >0</span
+                >)</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <section class="page-header">
+      <div class="container">
+        <h2>French Pastries</h2>
+        <p>Authentic European recipes, baked fresh daily</p>
+      </div>
+    </section>
+
+    <main class="container">
+      <section class="product-grid">
+        <div class="products">
+          <div class="product-card">
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=300&h=300&fit=crop"
+                alt="Almond Croissants"
+              />
+              <div class="product-badge">Popular</div>
+            </div>
+            <div class="product-info">
+              <h3>Almond Croissants</h3>
+              <p>Buttery, flaky croissants filled with sweet almond cream</p>
+              <div class="rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i>
+                <span>(4.8)</span>
+              </div>
+              <div class="price">$5.49</div>
+              <button
+                class="add-to-cart"
+                data-product="Almond Croissants"
+                data-price="5.49"
+              >
+                <i class="fas fa-plus"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1517427294546-5aa121f68e8a?w=300&h=300&fit=crop"
+                alt="Pain au Chocolat"
+              />
+              <div class="product-badge">Classic</div>
+            </div>
+            <div class="product-info">
+              <h3>Pain au Chocolat</h3>
+              <p>Traditional French pastry with rich dark chocolate batons</p>
+              <div class="rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i>
+                <span>(4.9)</span>
+              </div>
+              <div class="price">$4.99</div>
+              <button
+                class="add-to-cart"
+                data-product="Pain au Chocolat"
+                data-price="4.99"
+              >
+                <i class="fas fa-plus"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1549599762-4d34e2d62c6e?w=300&h=300&fit=crop"
+                alt="Cinnamon Rolls"
+              />
+              <div class="product-badge">Warm</div>
+            </div>
+            <div class="product-info">
+              <h3>Cinnamon Rolls</h3>
+              <p>Soft, spiral pastries with cinnamon sugar and vanilla glaze</p>
+              <div class="rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="far fa-star"></i>
+                <span>(4.6)</span>
+              </div>
+              <div class="price">$4.49</div>
+              <button
+                class="add-to-cart"
+                data-product="Cinnamon Rolls"
+                data-price="4.49"
+              >
+                <i class="fas fa-plus"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1568876694728-451bbf694b83?w=300&h=300&fit=crop"
+                alt="Fruit Danish"
+              />
+              <div class="product-badge">Fresh</div>
+            </div>
+            <div class="product-info">
+              <h3>Fruit Danish</h3>
+              <p>
+                Delicate pastry topped with seasonal fruits and pastry cream
+              </p>
+              <div class="rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="far fa-star"></i>
+                <span>(4.5)</span>
+              </div>
+              <div class="price">$5.99</div>
+              <button
+                class="add-to-cart"
+                data-product="Fruit Danish"
+                data-price="5.99"
+              >
+                <i class="fas fa-plus"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1562440499-64c9a5a68aa0?w=300&h=300&fit=crop"
+                alt="Eclairs"
+              />
+              <div class="product-badge">Creamy</div>
+            </div>
+            <div class="product-info">
+              <h3>Chocolate Eclairs</h3>
+              <p>
+                Choux pastry filled with vanilla cream and topped with chocolate
+              </p>
+              <div class="rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i>
+                <span>(4.7)</span>
+              </div>
+              <div class="price">$6.49</div>
+              <button
+                class="add-to-cart"
+                data-product="Chocolate Eclairs"
+                data-price="6.49"
+              >
+                <i class="fas fa-plus"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1519915028121-7d3463d20b13?w=300&h=300&fit=crop"
+                alt="Macarons"
+              />
+              <div class="product-badge">Delicate</div>
+            </div>
+            <div class="product-info">
+              <h3>French Macarons</h3>
+              <p>
+                Colorful almond meringue cookies with ganache filling (6 pack)
+              </p>
+              <div class="rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i>
+                <span>(4.8)</span>
+              </div>
+              <div class="price">$12.99</div>
+              <button
+                class="add-to-cart"
+                data-product="French Macarons"
+                data-price="12.99"
+              >
+                <i class="fas fa-plus"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Sweet Delights</h3>
+            <p>Bringing sweetness to your life, one bite at a time.</p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="cookies.html">Cookies</a></li>
+              <li><a href="cakes.html">Cakes</a></li>
+              <li><a href="pastries.html">Pastries</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Contact</h4>
+            <p><i class="fas fa-map-marker-alt"></i> 123 Baker Street</p>
+            <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+            <p><i class="fas fa-envelope"></i> hello@sweetdelights.com</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 Sweet Delights Bakery. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

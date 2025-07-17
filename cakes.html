@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Custom Cakes - Sweet Delights Bakery</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="logo">
+          <i class="fas fa-birthday-cake"></i>
+          <h1>Sweet Delights</h1>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="cookies.html">Cookies</a></li>
+            <li><a href="cakes.html" class="active">Cakes</a></li>
+            <li><a href="pastries.html">Pastries</a></li>
+            <li>
+              <a href="cart.html" id="cart-btn"
+                ><i class="fas fa-shopping-cart"></i> Cart (<span
+                  id="cart-count"
+                  >0</span
+                >)</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <section class="page-header">
+      <div class="container">
+        <h2>Custom Cakes</h2>
+        <p>Perfect for any celebration, crafted with love</p>
+      </div>
+    </section>
+
+    <main class="container">
+      <section class="product-grid">
+        <div class="products">
+          <div class="product-card">
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=300&h=300&fit=crop"
+                alt="Vanilla Birthday Cake"
+              />
+              <div class="product-badge">Best Seller</div>
+            </div>
+            <div class="product-info">
+              <h3>Vanilla Birthday Cake</h3>
+              <p>
+                Classic vanilla sponge with rich buttercream frosting and
+                sprinkles
+              </p>
+              <div class="rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i>
+                <span>(5.0)</span>
+              </div>
+              <div class="price">$35.99</div>
+              <button
+                class="add-to-cart"
+                data-product="Vanilla Birthday Cake"
+                data-price="35.99"
+              >
+                <i class="fas fa-plus"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=300&h=300&fit=crop"
+                alt="Chocolate Fudge Cake"
+              />
+              <div class="product-badge">Rich</div>
+            </div>
+            <div class="product-info">
+              <h3>Chocolate Fudge Cake</h3>
+              <p>
+                Decadent chocolate cake layers with smooth chocolate ganache
+              </p>
+              <div class="rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i>
+                <span>(4.9)</span>
+              </div>
+              <div class="price">$42.99</div>
+              <button
+                class="add-to-cart"
+                data-product="Chocolate Fudge Cake"
+                data-price="42.99"
+              >
+                <i class="fas fa-plus"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1557925923-cd4648e211a0?w=300&h=300&fit=crop"
+                alt="Red Velvet Cake"
+              />
+              <div class="product-badge">Elegant</div>
+            </div>
+            <div class="product-info">
+              <h3>Red Velvet Cake</h3>
+              <p>Classic red velvet with tangy cream cheese frosting</p>
+              <div class="rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i>
+                <span>(4.8)</span>
+              </div>
+              <div class="price">$39.99</div>
+              <button
+                class="add-to-cart"
+                data-product="Red Velvet Cake"
+                data-price="39.99"
+              >
+                <i class="fas fa-plus"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=300&h=300&fit=crop"
+                alt="Lemon Drizzle Cake"
+              />
+              <div class="product-badge">Fresh</div>
+            </div>
+            <div class="product-info">
+              <h3>Lemon Drizzle Cake</h3>
+              <p>Zesty lemon sponge with a tangy lemon glaze drizzle</p>
+              <div class="rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="far fa-star"></i>
+                <span>(4.6)</span>
+              </div>
+              <div class="price">$32.99</div>
+              <button
+                class="add-to-cart"
+                data-product="Lemon Drizzle Cake"
+                data-price="32.99"
+              >
+                <i class="fas fa-plus"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=300&h=300&fit=crop"
+                alt="Carrot Cake"
+              />
+              <div class="product-badge">Homestyle</div>
+            </div>
+            <div class="product-info">
+              <h3>Carrot Cake</h3>
+              <p>
+                Moist spiced carrot cake with cream cheese frosting and walnuts
+              </p>
+              <div class="rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i>
+                <span>(4.7)</span>
+              </div>
+              <div class="price">$36.99</div>
+              <button
+                class="add-to-cart"
+                data-product="Carrot Cake"
+                data-price="36.99"
+              >
+                <i class="fas fa-plus"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=300&h=300&fit=crop"
+                alt="Strawberry Shortcake"
+              />
+              <div class="product-badge">Seasonal</div>
+            </div>
+            <div class="product-info">
+              <h3>Strawberry Shortcake</h3>
+              <p>
+                Light vanilla sponge with fresh strawberries and whipped cream
+              </p>
+              <div class="rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="far fa-star"></i>
+                <span>(4.5)</span>
+              </div>
+              <div class="price">$38.99</div>
+              <button
+                class="add-to-cart"
+                data-product="Strawberry Shortcake"
+                data-price="38.99"
+              >
+                <i class="fas fa-plus"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Sweet Delights</h3>
+            <p>Bringing sweetness to your life, one bite at a time.</p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="cookies.html">Cookies</a></li>
+              <li><a href="cakes.html">Cakes</a></li>
+              <li><a href="pastries.html">Pastries</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Contact</h4>
+            <p><i class="fas fa-map-marker-alt"></i> 123 Baker Street</p>
+            <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+            <p><i class="fas fa-envelope"></i> hello@sweetdelights.com</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 Sweet Delights Bakery. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -3,71 +3,255 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Table Accessibility - Row Headers</title>
-    <style>
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-bottom: 20px;
-      }
-      th,
-      td {
-        border: 1px solid #ddd;
-        padding: 8px;
-        text-align: left;
-      }
-      th {
-        background-color: #f2f2f2;
-      }
-      .success {
-        background-color: #d4edda;
-      }
-      .failure {
-        background-color: #f8d7da;
-      }
-    </style>
+    <title>Sweet Delights Bakery - Premium Pastries, Cakes & Cookies</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
   </head>
   <body>
-    <h1>Table Accessibility - Row Headers</h1>
+    <header>
+      <div class="container">
+        <div class="logo">
+          <i class="fas fa-birthday-cake"></i>
+          <h1>Sweet Delights</h1>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="cookies.html">Cookies</a></li>
+            <li><a href="cakes.html">Cakes</a></li>
+            <li><a href="pastries.html">Pastries</a></li>
+            <li>
+              <a href="cart.html" id="cart-btn"
+                ><i class="fas fa-shopping-cart"></i> Cart (<span
+                  id="cart-count"
+                  >0</span
+                >)</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
-    <h2>Success Case: Properly Tagged Row Headers</h2>
-    <table id="success-case" class="success">
-      <thead>
-        <tr>
-          <th>Category</th>
-          <th>Value</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td role="rowheader">Apples</td>
-          <td>10</td>
-        </tr>
-        <tr>
-          <td role="rowheader">Bananas</td>
-          <td>15</td>
-        </tr>
-      </tbody>
-    </table>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h2>Artisan Baked Goods</h2>
+        <p>Freshly baked daily with love and the finest ingredients</p>
+        <a href="#featured" class="cta-button">Explore Our Selection</a>
+      </div>
+    </section>
 
-    <h2>Failure Case: Missing Row Header Role</h2>
-    <table id="failure-case" class="failure">
-      <thead>
-        <tr>
-          <th>Category</th>
-          <th>Value</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Apples</td>
-          <td>10</td>
-        </tr>
-        <tr>
-          <td>Bananas</td>
-          <td>15</td>
-        </tr>
-      </tbody>
-    </table>
+    <main class="container">
+      <!-- Featured Products -->
+      <section id="featured" class="featured-section">
+        <h2>Featured Today</h2>
+        <div class="products featured-grid">
+          <div class="product-card featured">
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=300&h=300&fit=crop"
+                alt="Chocolate Chip Cookies"
+              />
+              <div class="product-badge">Popular</div>
+            </div>
+            <div class="product-info">
+              <h3>Chocolate Chip Cookies</h3>
+              <p>Classic cookies loaded with premium chocolate chips</p>
+              <div class="rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i>
+                <span>(4.9)</span>
+              </div>
+              <div class="price">$8.99</div>
+              <button
+                class="add-to-cart"
+                data-product="Chocolate Chip Cookies"
+                data-price="8.99"
+              >
+                <i class="fas fa-plus"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <div class="product-card featured">
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=300&h=300&fit=crop"
+                alt="Vanilla Birthday Cake"
+              />
+              <div class="product-badge">Best Seller</div>
+            </div>
+            <div class="product-info">
+              <h3>Vanilla Birthday Cake</h3>
+              <p>Moist vanilla cake with rich buttercream frosting</p>
+              <div class="rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i>
+                <span>(5.0)</span>
+              </div>
+              <div class="price">$35.99</div>
+              <button
+                class="add-to-cart"
+                data-product="Vanilla Birthday Cake"
+                data-price="35.99"
+              >
+                <i class="fas fa-plus"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <div class="product-card featured">
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=300&h=300&fit=crop"
+                alt="Almond Croissants"
+              />
+              <div class="product-badge">Fresh</div>
+            </div>
+            <div class="product-info">
+              <h3>Almond Croissants</h3>
+              <p>Buttery, flaky croissants with sweet almond filling</p>
+              <div class="rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i>
+                <span>(4.8)</span>
+              </div>
+              <div class="price">$5.49</div>
+              <button
+                class="add-to-cart"
+                data-product="Almond Croissants"
+                data-price="5.49"
+              >
+                <i class="fas fa-plus"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Categories Preview -->
+      <section class="categories-preview">
+        <h2>Our Specialties</h2>
+        <div class="categories-grid">
+          <div class="category-card">
+            <img
+              src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=400&h=250&fit=crop"
+              alt="Cookies Collection"
+            />
+            <div class="category-overlay">
+              <h3>Premium Cookies</h3>
+              <p>Handcrafted with love</p>
+              <a href="cookies.html" class="category-link">View Collection</a>
+            </div>
+          </div>
+
+          <div class="category-card">
+            <img
+              src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=400&h=250&fit=crop"
+              alt="Cakes Collection"
+            />
+            <div class="category-overlay">
+              <h3>Custom Cakes</h3>
+              <p>Perfect for any celebration</p>
+              <a href="cakes.html" class="category-link">View Collection</a>
+            </div>
+          </div>
+
+          <div class="category-card">
+            <img
+              src="https://images.unsplash.com/photo-1517427294546-5aa121f68e8a?w=400&h=250&fit=crop"
+              alt="Pastries Collection"
+            />
+            <div class="category-overlay">
+              <h3>French Pastries</h3>
+              <p>Authentic European recipes</p>
+              <a href="pastries.html" class="category-link">View Collection</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="about-section">
+        <div class="about-content">
+          <div class="about-text">
+            <h2>About Sweet Delights</h2>
+            <p>
+              For over 20 years, Sweet Delights has been crafting exceptional
+              baked goods using traditional techniques and the finest
+              ingredients. Our passionate bakers wake up before dawn to ensure
+              every item is fresh, delicious, and made with love.
+            </p>
+            <div class="features">
+              <div class="feature">
+                <i class="fas fa-leaf"></i>
+                <span>Fresh Daily</span>
+              </div>
+              <div class="feature">
+                <i class="fas fa-heart"></i>
+                <span>Made with Love</span>
+              </div>
+              <div class="feature">
+                <i class="fas fa-award"></i>
+                <span>Award Winning</span>
+              </div>
+            </div>
+          </div>
+          <div class="about-image">
+            <img
+              src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=500&h=400&fit=crop"
+              alt="Our bakery kitchen"
+            />
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Sweet Delights</h3>
+            <p>Bringing sweetness to your life, one bite at a time.</p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="cookies.html">Cookies</a></li>
+              <li><a href="cakes.html">Cakes</a></li>
+              <li><a href="pastries.html">Pastries</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Contact</h4>
+            <p><i class="fas fa-map-marker-alt"></i> 123 Baker Street</p>
+            <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+            <p><i class="fas fa-envelope"></i> hello@sweetdelights.com</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 Sweet Delights Bakery. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
   </body>
 </html>

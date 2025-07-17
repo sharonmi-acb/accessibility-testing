@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Premium Cookies - Sweet Delights Bakery</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="logo">
+          <i class="fas fa-birthday-cake"></i>
+          <h1>Sweet Delights</h1>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="cookies.html" class="active">Cookies</a></li>
+            <li><a href="cakes.html">Cakes</a></li>
+            <li><a href="pastries.html">Pastries</a></li>
+            <li>
+              <a href="cart.html" id="cart-btn"
+                ><i class="fas fa-shopping-cart"></i> Cart (<span
+                  id="cart-count"
+                  >0</span
+                >)</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <section class="page-header">
+      <div class="container">
+        <h2>Premium Cookies</h2>
+        <p>Handcrafted daily with the finest ingredients</p>
+      </div>
+    </section>
+
+    <main class="container">
+      <section class="product-grid">
+        <div class="products">
+          <div class="product-card">
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=300&h=300&fit=crop"
+                alt="Chocolate Chip Cookies"
+              />
+              <div class="product-badge">Popular</div>
+            </div>
+            <div class="product-info">
+              <h3>Chocolate Chip Cookies</h3>
+              <p>
+                Classic cookies loaded with premium chocolate chips and a hint
+                of vanilla
+              </p>
+              <div class="rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i>
+                <span>(4.9)</span>
+              </div>
+              <div class="price">$8.99</div>
+              <button
+                class="add-to-cart"
+                data-product="Chocolate Chip Cookies"
+                data-price="8.99"
+              >
+                <i class="fas fa-plus"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=300&h=300&fit=crop"
+                alt="Oatmeal Raisin Cookies"
+              />
+              <div class="product-badge">Healthy</div>
+            </div>
+            <div class="product-info">
+              <h3>Oatmeal Raisin Cookies</h3>
+              <p>Wholesome oats with plump raisins and warm cinnamon spice</p>
+              <div class="rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i>
+                <span>(4.7)</span>
+              </div>
+              <div class="price">$7.99</div>
+              <button
+                class="add-to-cart"
+                data-product="Oatmeal Raisin Cookies"
+                data-price="7.99"
+              >
+                <i class="fas fa-plus"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?w=300&h=300&fit=crop"
+                alt="Peanut Butter Cookies"
+              />
+              <div class="product-badge">Creamy</div>
+            </div>
+            <div class="product-info">
+              <h3>Peanut Butter Cookies</h3>
+              <p>
+                Rich and creamy peanut butter with a perfectly chewy texture
+              </p>
+              <div class="rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i>
+                <span>(4.8)</span>
+              </div>
+              <div class="price">$8.49</div>
+              <button
+                class="add-to-cart"
+                data-product="Peanut Butter Cookies"
+                data-price="8.49"
+              >
+                <i class="fas fa-plus"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=300&h=300&fit=crop"
+                alt="Double Chocolate Cookies"
+              />
+              <div class="product-badge">Decadent</div>
+            </div>
+            <div class="product-info">
+              <h3>Double Chocolate Cookies</h3>
+              <p>
+                Intense chocolate cookies with white and dark chocolate chunks
+              </p>
+              <div class="rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i>
+                <span>(4.9)</span>
+              </div>
+              <div class="price">$9.99</div>
+              <button
+                class="add-to-cart"
+                data-product="Double Chocolate Cookies"
+                data-price="9.99"
+              >
+                <i class="fas fa-plus"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1548365328-8c6db3220e4c?w=300&h=300&fit=crop"
+                alt="Snickerdoodle Cookies"
+              />
+              <div class="product-badge">Classic</div>
+            </div>
+            <div class="product-info">
+              <h3>Snickerdoodle Cookies</h3>
+              <p>Soft and chewy cookies rolled in cinnamon sugar perfection</p>
+              <div class="rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="far fa-star"></i>
+                <span>(4.6)</span>
+              </div>
+              <div class="price">$7.49</div>
+              <button
+                class="add-to-cart"
+                data-product="Snickerdoodle Cookies"
+                data-price="7.49"
+              >
+                <i class="fas fa-plus"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1606983340126-99ab4feaa64a?w=300&h=300&fit=crop"
+                alt="Sugar Cookies"
+              />
+              <div class="product-badge">Sweet</div>
+            </div>
+            <div class="product-info">
+              <h3>Sugar Cookies</h3>
+              <p>
+                Delicate vanilla cookies with a light dusting of sparkling sugar
+              </p>
+              <div class="rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="far fa-star"></i>
+                <span>(4.5)</span>
+              </div>
+              <div class="price">$6.99</div>
+              <button
+                class="add-to-cart"
+                data-product="Sugar Cookies"
+                data-price="6.99"
+              >
+                <i class="fas fa-plus"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Sweet Delights</h3>
+            <p>Bringing sweetness to your life, one bite at a time.</p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="cookies.html">Cookies</a></li>
+              <li><a href="cakes.html">Cakes</a></li>
+              <li><a href="pastries.html">Pastries</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Contact</h4>
+            <p><i class="fas fa-map-marker-alt"></i> 123 Baker Street</p>
+            <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+            <p><i class="fas fa-envelope"></i> hello@sweetdelights.com</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 Sweet Delights Bakery. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

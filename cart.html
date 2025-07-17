@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping Cart - Sweet Delights Bakery</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="logo">
+          <i class="fas fa-birthday-cake"></i>
+          <h1>Sweet Delights</h1>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="cookies.html">Cookies</a></li>
+            <li><a href="cakes.html">Cakes</a></li>
+            <li><a href="pastries.html">Pastries</a></li>
+            <li>
+              <a href="cart.html" class="active"
+                ><i class="fas fa-shopping-cart"></i> Cart (<span
+                  id="cart-count"
+                  >0</span
+                >)</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <section class="page-header">
+      <div class="container">
+        <h2>Your Shopping Cart</h2>
+        <p>Review your delicious selections</p>
+      </div>
+    </section>
+
+    <main class="container">
+      <section class="cart-section">
+        <div class="cart-content">
+          <div id="cart-items" class="cart-items">
+            <!-- Cart items will be populated by JavaScript -->
+          </div>
+
+          <div class="cart-summary">
+            <div class="summary-card">
+              <h3>Order Summary</h3>
+              <div class="summary-line">
+                <span>Subtotal:</span>
+                <span id="subtotal">$0.00</span>
+              </div>
+              <div class="summary-line">
+                <span>Tax (8.5%):</span>
+                <span id="tax">$0.00</span>
+              </div>
+              <div class="summary-line">
+                <span>Delivery:</span>
+                <span id="delivery">$5.99</span>
+              </div>
+              <div class="summary-line total">
+                <span>Total:</span>
+                <span id="total">$0.00</span>
+              </div>
+              <button class="checkout-btn" id="checkout-btn">
+                <i class="fas fa-credit-card"></i> Proceed to Checkout
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Nutrition Information Table -->
+        <div class="nutrition-section">
+          <h2>Nutritional Information</h2>
+          <p>Calorie and nutritional content per serving</p>
+
+          <div class="table-container">
+            <table class="nutrition-table">
+              <thead>
+                <tr>
+                  <th>Product</th>
+                  <th>Serving Size</th>
+                  <th>Calories</th>
+                  <th>Total Fat (g)</th>
+                  <th>Carbs (g)</th>
+                  <th>Protein (g)</th>
+                  <th>Sugar (g)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Chocolate Chip Cookies</strong></td>
+                  <td>1 cookie (30g)</td>
+                  <td>150</td>
+                  <td>7</td>
+                  <td>21</td>
+                  <td>2</td>
+                  <td>12</td>
+                </tr>
+                <tr>
+                  <td><strong>Oatmeal Raisin Cookies</strong></td>
+                  <td>1 cookie (32g)</td>
+                  <td>140</td>
+                  <td>6</td>
+                  <td>23</td>
+                  <td>3</td>
+                  <td>11</td>
+                </tr>
+                <tr>
+                  <td><strong>Peanut Butter Cookies</strong></td>
+                  <td>1 cookie (28g)</td>
+                  <td>160</td>
+                  <td>9</td>
+                  <td>18</td>
+                  <td>4</td>
+                  <td>10</td>
+                </tr>
+                <tr>
+                  <td><strong>Double Chocolate Cookies</strong></td>
+                  <td>1 cookie (35g)</td>
+                  <td>170</td>
+                  <td>8</td>
+                  <td>24</td>
+                  <td>3</td>
+                  <td>15</td>
+                </tr>
+                <tr>
+                  <td><strong>Vanilla Birthday Cake</strong></td>
+                  <td>1 slice (100g)</td>
+                  <td>380</td>
+                  <td>18</td>
+                  <td>52</td>
+                  <td>5</td>
+                  <td>45</td>
+                </tr>
+                <tr>
+                  <td><strong>Chocolate Fudge Cake</strong></td>
+                  <td>1 slice (110g)</td>
+                  <td>420</td>
+                  <td>22</td>
+                  <td>58</td>
+                  <td>6</td>
+                  <td>48</td>
+                </tr>
+                <tr>
+                  <td><strong>Red Velvet Cake</strong></td>
+                  <td>1 slice (105g)</td>
+                  <td>400</td>
+                  <td>20</td>
+                  <td>55</td>
+                  <td>5</td>
+                  <td>42</td>
+                </tr>
+                <tr>
+                  <td><strong>Carrot Cake</strong></td>
+                  <td>1 slice (95g)</td>
+                  <td>350</td>
+                  <td>16</td>
+                  <td>48</td>
+                  <td>4</td>
+                  <td>35</td>
+                </tr>
+                <tr>
+                  <td><strong>Almond Croissants</strong></td>
+                  <td>1 croissant (80g)</td>
+                  <td>320</td>
+                  <td>18</td>
+                  <td>35</td>
+                  <td>8</td>
+                  <td>15</td>
+                </tr>
+                <tr>
+                  <td><strong>Pain au Chocolat</strong></td>
+                  <td>1 pastry (75g)</td>
+                  <td>290</td>
+                  <td>16</td>
+                  <td>32</td>
+                  <td>6</td>
+                  <td>12</td>
+                </tr>
+                <tr>
+                  <td><strong>Cinnamon Rolls</strong></td>
+                  <td>1 roll (85g)</td>
+                  <td>310</td>
+                  <td>12</td>
+                  <td>48</td>
+                  <td>5</td>
+                  <td>25</td>
+                </tr>
+                <tr>
+                  <td><strong>Chocolate Eclairs</strong></td>
+                  <td>1 eclair (90g)</td>
+                  <td>280</td>
+                  <td>15</td>
+                  <td>30</td>
+                  <td>6</td>
+                  <td>18</td>
+                </tr>
+                <tr>
+                  <td><strong>French Macarons</strong></td>
+                  <td>1 macaron (20g)</td>
+                  <td>90</td>
+                  <td>4</td>
+                  <td>12</td>
+                  <td>2</td>
+                  <td>10</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="nutrition-notes">
+            <h4>Important Notes:</h4>
+            <ul>
+              <li>
+                Nutritional values are approximate and may vary based on
+                preparation methods
+              </li>
+              <li>
+                Contains allergens: wheat, eggs, dairy, nuts (varies by product)
+              </li>
+              <li>
+                For specific dietary requirements or allergies, please contact
+                us
+              </li>
+              <li>
+                All products are made in a facility that processes nuts, dairy,
+                and gluten
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Sweet Delights</h3>
+            <p>Bringing sweetness to your life, one bite at a time.</p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="cookies.html">Cookies</a></li>
+              <li><a href="cakes.html">Cakes</a></li>
+              <li><a href="pastries.html">Pastries</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Contact</h4>
+            <p><i class="fas fa-map-marker-alt"></i> 123 Baker Street</p>
+            <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+            <p><i class="fas fa-envelope"></i> hello@sweetdelights.com</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 Sweet Delights Bakery. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="cart.js"></script>
+  </body>
+</html>
